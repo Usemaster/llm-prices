@@ -48,7 +48,9 @@ jobs:
 
       - name: 部署到 Cloudflare Pages
         if: env.HAS_TOKEN == 'true'
-        run: npx --yes wrangler@4 pages deploy . --project-name=llm-prices --branch=main --commit-hash=${{ github.sha }}
+        run: |
+          npx --yes wrangler@4 pages project create llm-prices --production-branch=main || echo "项目已存在,直接部署"
+          npx --yes wrangler@4 pages deploy . --project-name=llm-prices --branch=main --commit-hash=${{ github.sha }}
 
       - name: 未配置 secrets,跳过部署
         if: env.HAS_TOKEN != 'true'
