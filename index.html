@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LLM API 价格对比 — 国内外主流大模型</title>
+<link rel="icon" href="data:,">
+<meta name="description" content="国内外主流大模型 API 价格对比:OpenAI、Anthropic、Google、xAI、Mistral、DeepSeek、阿里、智谱、Kimi、豆包、混元、MiniMax,支持成本估算与币种切换。">
+<style>
+  :root {
+    --bg: #fafbfc; --panel: #fff; --border: #e1e5ea; --text: #1a1f26;
+    --muted: #6b7280; --accent: #0f62fe; --accent-bg: #eaf1ff;
+    --cn: #c2410c; --intl: #1d4ed8; --good: #047857;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1117; --panel: #161b22; --border: #2d333b; --text: #e6edf3;
+      --muted: #8b949e; --accent: #58a6ff; --accent-bg: #12233d;
+      --cn: #fb923c; --intl: #60a5fa; --good: #34d399;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font: 14px/1.5 -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 20px 16px 60px; }
+
+  header.top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px; margin-bottom: 4px; }
+  h1 { font-size: 20px; font-weight: 700; }
+  .meta { color: var(--muted); font-size: 12.5px; }
+  .meta b { color: var(--text); font-weight: 600; }
+
+  .panel { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; }
+
+  /* 工具栏 */
+  .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 10px 12px; margin: 14px 0 10px; }
+  .toolbar input[type="search"] { flex: 1 1 200px; min-width: 160px; }
+  input, select, button { font: inherit; color: inherit; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 6px 10px; }
+  input:focus, select:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+  .seg { display: inline-flex; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+  .seg button { border: 0; border-radius: 0; background: transparent; padding: 6px 12px; cursor: pointer; color: var(--muted); }
+  .seg button.on { background: var(--accent); color: #fff; }
+
+  /* 计算器 */
+  .calc { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; padding: 10px 12px; margin-bottom: 10px; font-size: 13px; }
+  .calc label { color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
+  .calc input { width: 110px; font-family: var(--mono); }
+  .calc .hint { color: var(--muted); font-size: 12px; }
+
+  /* 表格 */
+  .table-box { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  thead th { position: sticky; top: 0; background: var(--panel); text-align: left; font-size: 12px; color: var(--muted); font-weight: 600; padding: 9px 10px; border-bottom: 1px solid var(--border); white-space: nowrap; cursor: pointer; user-select: none; }
+  thead th:hover { color: var(--accent); }
+  thead th .arrow { font-size: 10px; }
+  th.num, td.num { text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  tbody td { padding: 7px 10px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  tbody tr.row { cursor: pointer; }
+  tbody tr.row:hover { background: var(--accent-bg); }
+  tbody tr.row.open { background: var(--accent-bg); }
+  .vendor { font-weight: 600; }
+  .badge { display: inline-block; font-size: 11px; padding: 1px 6px; border-radius: 4px; margin-left: 6px; vertical-align: 1px; }
+  .badge.cn { color: var(--cn); border: 1px solid currentColor; }
+  .badge.intl { color: var(--intl); border: 1px solid currentColor; }
+  .model-name { font-family: var(--mono); font-size: 12.5px; }
+  td.detail { white-space: normal; background: var(--bg); font-size: 12.5px; color: var(--muted); padding: 10px 14px; }
+  td.detail dl { display: grid; grid-template-columns: max-content 1fr; gap: 3px 14px; }
+  td.detail dt { color: var(--muted); }
+  td.detail dd { color: var(--text); font-family: var(--mono); }
+  td.detail a { color: var(--accent); }
+  .cost { color: var(--good); font-weight: 600; }
+  .empty { text-align: center; color: var(--muted); padding: 40px 0; }
+
+  footer { margin-top: 18px; color: var(--muted); font-size: 12px; line-height: 1.8; }
+  footer a { color: var(--accent); text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>LLM API 价格对比</h1>
+    <span class="meta" id="meta">加载中…</span>
+  </header>
+
+  <div class="panel toolbar">
+    <input type="search" id="q" placeholder="搜索模型 / 厂商…">
+    <div class="seg" id="regionSeg">
+      <button data-v="all" class="on">全部</button>
+      <button data-v="cn">国内</button>
+      <button data-v="intl">国外</button>
+    </div>
+    <select id="vendorSel"><option value="">全部厂商</option></select>
+    <div class="seg" id="curSeg">
+      <button data-v="USD">USD $</button>
+      <button data-v="CNY" class="on">CNY ¥</button>
+    </div>
+  </div>
+
+  <div class="panel calc">
+    <strong>成本计算器</strong>
+    <label>每月输入 <input type="number" id="calcIn" min="0" step="any" placeholder="0"> 百万 token</label>
+    <label>每月输出 <input type="number" id="calcOut" min="0" step="any" placeholder="0"> 百万 token</label>
+    <span class="hint">填入用量后表格出现「月成本」列,点击表头可按成本排序</span>
+  </div>
+
+  <div class="panel table-box">
+    <table id="tbl">
+      <thead><tr id="headRow"></tr></thead>
+      <tbody id="bodyRows"></tbody>
+    </table>
+    <div class="empty" id="empty" hidden>没有匹配的模型</div>
+  </div>
+
+  <footer>
+    <p>价格单位:每 100 万 token。国际厂商数据来自 LiteLLM / OpenRouter 公开价格库,国内厂商数据为人工整理自官方定价页,每行附来源链接。价格可能滞后或存在阶梯价、缓存价、限时优惠等情况,<b>实际计费请以各厂商官网为准</b>。</p>
+    <p>数据来源:<a href="https://github.com/BerriAI/litellm" target="_blank" rel="noopener">LiteLLM</a> · <a href="https://openrouter.ai" target="_blank" rel="noopener">OpenRouter</a> · 各厂商官方定价页</p>
+  </footer>
+</div>
+
+<script>
+"use strict";
+
+const state = {
+  data: null, currency: "CNY", region: "all", vendor: "", q: "",
+  sortKey: "inputUSD", sortDir: 1, openRow: null,
+  calcIn: 0, calcOut: 0,
+};
+
+const $ = (s) => document.querySelector(s);
+const fmtNum = (v) => v == null ? "—" : v >= 100 ? v.toFixed(0) : v >= 10 ? v.toFixed(1) : v >= 1 ? v.toFixed(2) : v.toFixed(3);
+const fmtCtx = (c) => c == null ? "—" : c >= 1e6 ? (Math.round(c / 1e4) / 100) + "M" : Math.round(c / 1e3) + "k";
+
+function price(usd) {
+  if (usd == null) return null;
+  return state.currency === "USD" ? usd : usd * state.data.fx.USD_CNY;
+}
+const sym = () => state.currency === "USD" ? "$" : "¥";
+
+function visibleModels() {
+  const q = state.q.trim().toLowerCase();
+  let list = state.data.models.filter((m) => {
+    if (state.region !== "all" && m.region !== state.region) return false;
+    if (state.vendor && m.vendor !== state.vendor) return false;
+    if (q && !(m.model.toLowerCase().includes(q) || m.vendor.toLowerCase().includes(q) || m.modelId.toLowerCase().includes(q))) return false;
+    return true;
+  });
+  const costOn = state.calcIn > 0 || state.calcOut > 0;
+  const key = state.sortKey;
+  list.sort((a, b) => {
+    let va, vb;
+    if (key === "cost" && costOn) { va = a.inputUSD * state.calcIn + a.outputUSD * state.calcOut; vb = b.inputUSD * state.calcIn + b.outputUSD * state.calcOut; }
+    else if (key === "vendor") { return a.vendor.localeCompare(b.vendor, "zh-Hans-CN") * state.sortDir || (a.inputUSD - b.inputUSD) * state.sortDir; }
+    else if (key === "context") { va = a.context ?? -1; vb = b.context ?? -1; }
+    else { va = a[key]; vb = b[key]; }
+    return (va - vb) * state.sortDir;
+  });
+  return list;
+}
+
+function renderHead(costOn) {
+  const cols = [
+    ["vendor", "厂商"], ["model", "模型", 0], ["inputUSD", `输入价 ${sym()}`, 1],
+    ["outputUSD", `输出价 ${sym()}`, 1], ["context", "上下文", 1],
+  ];
+  if (costOn) cols.push(["cost", `月成本 ${sym()}`, 1]);
+  $("#headRow").innerHTML = cols.map(([k, label, num]) => {
+    const arrow = state.sortKey === k ? `<span class="arrow">${state.sortDir > 0 ? "▲" : "▼"}</span>` : "";
+    const cls = num ? ' class="num"' : "";
+    return k === "model" ? `<th${cls}>${label}</th>` : `<th${cls} data-sort="${k}">${label} ${arrow}</th>`;
+  }).join("");
+  $("#headRow").querySelectorAll("[data-sort]").forEach((th) => th.addEventListener("click", () => {
+    const k = th.dataset.sort;
+    if (state.sortKey === k) state.sortDir *= -1; else { state.sortKey = k; state.sortDir = 1; }
+    state.openRow = null;
+    render();
+  }));
+}
+
+function detailRow(m) {
+  const rows = [
+    ["API model id", m.modelId],
+    ["原始标价", `${m.currency === "USD" ? "$" : "¥"}${fmtNum(m.input)} / ${fmtNum(m.output)} (${m.currency})`],
+    ["数据来源", { litellm: "LiteLLM 价格库", openrouter: "OpenRouter", manual: "官方定价页(人工整理)" }[m.source] || m.source],
+    ["官方定价页", m.sourceUrl ? `<a href="${m.sourceUrl}" target="_blank" rel="noopener">${m.sourceUrl}</a>` : "—"],
+  ];
+  if (m.observedAt) rows.push(["人工核对日期", m.observedAt]);
+  if (m.notes) rows.push(["备注", m.notes]);
+  return `<tr class="detail"><td colspan="10" class="detail"><dl>${rows.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl></td></tr>`;
+}
+
+function render() {
+  const costOn = state.calcIn > 0 || state.calcOut > 0;
+  renderHead(costOn);
+  const list = visibleModels();
+  $("#empty").hidden = list.length > 0;
+  const html = [];
+  list.forEach((m, i) => {
+    const key = m.vendor + "|" + m.modelId;
+    const badge = m.region === "cn" ? '<span class="badge cn">国内</span>' : '<span class="badge intl">国外</span>';
+    const cost = costOn ? `<td class="num cost">${fmtNum(price(m.inputUSD * state.calcIn + m.outputUSD * state.calcOut))}</td>` : "";
+    const free = m.inputUSD === 0 && m.outputUSD === 0;
+    html.push(`<tr class="row${state.openRow === key ? " open" : ""}" data-key="${key}" data-i="${i}">
+      <td class="vendor">${m.vendor}${badge}</td>
+      <td class="model-name">${m.model}</td>
+      <td class="num">${free ? "免费" : fmtNum(price(m.inputUSD))}</td>
+      <td class="num">${free ? "免费" : fmtNum(price(m.outputUSD))}</td>
+      <td class="num">${fmtCtx(m.context)}</td>${cost}
+    </tr>`);
+    if (state.openRow === key) html.push(detailRow(m));
+  });
+  $("#bodyRows").innerHTML = html.join("");
+  $("#bodyRows").querySelectorAll("tr.row").forEach((tr) => tr.addEventListener("click", () => {
+    state.openRow = state.openRow === tr.dataset.key ? null : tr.dataset.key;
+    render();
+  }));
+}
+
+async function init() {
+  const res = await fetch("prices.json", { cache: "no-cache" });
+  state.data = await res.json();
+
+  const d = new Date(state.data.updatedAt);
+  $("#meta").innerHTML = `共 <b>${state.data.count}</b> 个模型 · 数据更新于 <b>${d.toLocaleString("zh-CN")}</b> · 汇率 1 USD = <b>${state.data.fx.USD_CNY.toFixed(2)}</b> CNY`;
+
+  const vendors = [...new Set(state.data.models.map((m) => m.vendor))].sort((a, b) => a.localeCompare(b, "zh-Hans-CN"));
+  $("#vendorSel").innerHTML = '<option value="">全部厂商</option>' + vendors.map((v) => `<option>${v}</option>`).join("");
+
+  $("#q").addEventListener("input", (e) => { state.q = e.target.value; state.openRow = null; render(); });
+  $("#vendorSel").addEventListener("change", (e) => { state.vendor = e.target.value; state.openRow = null; render(); });
+  $("#regionSeg").addEventListener("click", (e) => {
+    if (e.target.tagName !== "BUTTON") return;
+    state.region = e.target.dataset.v; state.openRow = null;
+    $("#regionSeg").querySelectorAll("button").forEach((b) => b.classList.toggle("on", b === e.target));
+    render();
+  });
+  $("#curSeg").addEventListener("click", (e) => {
+    if (e.target.tagName !== "BUTTON") return;
+    state.currency = e.target.dataset.v;
+    $("#curSeg").querySelectorAll("button").forEach((b) => b.classList.toggle("on", b === e.target));
+    render();
+  });
+  const onCalc = () => {
+    state.calcIn = parseFloat($("#calcIn").value) || 0;
+    state.calcOut = parseFloat($("#calcOut").value) || 0;
+    if ((state.calcIn > 0 || state.calcOut > 0) && state.sortKey !== "cost") { state.sortKey = "cost"; state.sortDir = 1; }
+    state.openRow = null;
+    render();
+  };
+  $("#calcIn").addEventListener("input", onCalc);
+  $("#calcOut").addEventListener("input", onCalc);
+
+  render();
+}
+
+init().catch((err) => { $("#meta").textContent = "加载 prices.json 失败: " + err.message; });
+</script>
+</body>
+</html>
