@@ -34,9 +34,11 @@ node scripts/build-data.mjs   # 生成 prices.json,需 Node 20+
 
 ## 部署(Cloudflare Pages)
 
-1. 把本目录推到 GitHub 仓库
-2. Cloudflare Pages → 连接仓库:构建命令留空,输出目录填 `/`(根目录)
-3. 完成。之后 Actions 每次提交 prices.json,Pages 自动重新部署
+采用 Direct Upload 模式,由 GitHub Actions 自动完成:
+
+1. 仓库 secrets 配置 `CF_API_TOKEN`(账户级 Cloudflare Pages 编辑权限)和 `CF_ACCOUNT_ID`
+2. `update-prices.yml` 的 deploy 任务在每次数据更新/代码推送后执行 `wrangler pages deploy`(项目不存在时自动创建)
+3. 线上地址:`llm-prices-4nr.pages.dev`(`llm-prices` 子域名被他人占用,Cloudflare 自动加了后缀;绑自有域名可忽略此问题)
 
 ## 免责
 
