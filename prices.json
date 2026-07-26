@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-07-26T00:31:28.078Z",
+  "updatedAt": "2026-07-26T04:39:53.176Z",
   "fx": {
-    "USD_CNY": 6.781903,
+    "USD_CNY": 6.786115,
     "source": "open.er-api.com"
   },
   "count": 180,
@@ -19,8 +19,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": ">128K 档 ¥0.6/¥6",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.0221177,
-      "outputUSD": 0.221177
+      "inputUSD": 0.022104,
+      "outputUSD": 0.22104
     },
     {
       "vendor": "阿里百炼",
@@ -35,8 +35,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": "Batch 半价",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.0737256,
-      "outputUSD": 0.294902
+      "inputUSD": 0.0736799,
+      "outputUSD": 0.294719
     },
     {
       "vendor": "阿里百炼",
@@ -51,8 +51,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": "思考模式输出 ¥8;>128K 档 ¥2.4/¥20",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.117961,
-      "outputUSD": 0.294902
+      "inputUSD": 0.117888,
+      "outputUSD": 0.294719
     },
     {
       "vendor": "阿里百炼",
@@ -67,8 +67,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": "思考模式输出 ¥3",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.0442354,
-      "outputUSD": 0.0884707
+      "inputUSD": 0.0442079,
+      "outputUSD": 0.0884158
     },
     {
       "vendor": "阿里百炼",
@@ -83,8 +83,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": "思考模式输出 ¥20",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.294902,
-      "outputUSD": 1.17961
+      "inputUSD": 0.294719,
+      "outputUSD": 1.17888
     },
     {
       "vendor": "阿里百炼",
@@ -99,8 +99,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": "思考模式输出 ¥7.5",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.110588,
-      "outputUSD": 0.442354
+      "inputUSD": 0.11052,
+      "outputUSD": 0.442079
     },
     {
       "vendor": "阿里百炼",
@@ -115,8 +115,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": "阶梯最高档 ¥5/¥25",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.147451,
-      "outputUSD": 0.589805
+      "inputUSD": 0.14736,
+      "outputUSD": 0.589439
     },
     {
       "vendor": "阿里百炼",
@@ -131,8 +131,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": "阶梯最高档 ¥20/¥200",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.589805,
-      "outputUSD": 2.35922
+      "inputUSD": 0.589439,
+      "outputUSD": 2.35776
     },
     {
       "vendor": "阿里百炼",
@@ -147,8 +147,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": "阶梯:>32K ¥4/¥16,>128K ¥7/¥28",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.368628,
-      "outputUSD": 1.47451
+      "inputUSD": 0.368399,
+      "outputUSD": 1.4736
     },
     {
       "vendor": "阿里百炼",
@@ -163,8 +163,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": "开源版;>128K 档 ¥3/¥18",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.176941,
-      "outputUSD": 1.06165
+      "inputUSD": 0.176832,
+      "outputUSD": 1.06099
     },
     {
       "vendor": "阿里百炼",
@@ -179,8 +179,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": ">128K 档 ¥0.8/¥8",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.0294902,
-      "outputUSD": 0.294902
+      "inputUSD": 0.0294719,
+      "outputUSD": 0.294719
     },
     {
       "vendor": "阿里百炼",
@@ -195,8 +195,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": "开源版",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.442354,
-      "outputUSD": 2.65412
+      "inputUSD": 0.442079,
+      "outputUSD": 2.65247
     },
     {
       "vendor": "阿里百炼",
@@ -211,8 +211,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": "开源版",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.265412,
-      "outputUSD": 1.59247
+      "inputUSD": 0.265247,
+      "outputUSD": 1.59148
     },
     {
       "vendor": "阿里百炼",
@@ -227,8 +227,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": ">256K 档 ¥4.8/¥28.8",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.176941,
-      "outputUSD": 1.06165
+      "inputUSD": 0.176832,
+      "outputUSD": 1.06099
     },
     {
       "vendor": "阿里百炼",
@@ -243,8 +243,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": "限时 5 折中;Batch 半价;缓存有折扣",
       "observedAt": "2026-07-23",
-      "inputUSD": 1.76941,
-      "outputUSD": 5.30824
+      "inputUSD": 1.76832,
+      "outputUSD": 5.30495
     },
     {
       "vendor": "阿里百炼",
@@ -259,8 +259,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": "限时 8 折;>256K 档 ¥6/¥24",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.294902,
-      "outputUSD": 1.17961
+      "inputUSD": 0.294719,
+      "outputUSD": 1.17888
     },
     {
       "vendor": "阿里百炼",
@@ -275,8 +275,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": "推理模型",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.235922,
-      "outputUSD": 0.589805
+      "inputUSD": 0.235776,
+      "outputUSD": 0.589439
     },
     {
       "vendor": "豆包",
@@ -291,8 +291,8 @@
       "sourceUrl": "https://www.volcengine.com/docs/82379/1544106",
       "notes": "缓存命中输入 ¥0.16;输出>0.2K 档 ¥8",
       "observedAt": "2026-07-25",
-      "inputUSD": 0.117961,
-      "outputUSD": 0.294902
+      "inputUSD": 0.117888,
+      "outputUSD": 0.294719
     },
     {
       "vendor": "豆包",
@@ -307,8 +307,8 @@
       "sourceUrl": "https://www.volcengine.com/docs/82379/1544106",
       "notes": "缓存命中输入 ¥0.12;阶梯:(32,128]K ¥0.9/¥5.4,(128,256]K ¥1.8/¥10.8;音频输入 ¥9",
       "observedAt": "2026-07-25",
-      "inputUSD": 0.0884707,
-      "outputUSD": 0.530824
+      "inputUSD": 0.0884158,
+      "outputUSD": 0.530495
     },
     {
       "vendor": "豆包",
@@ -323,8 +323,8 @@
       "sourceUrl": "https://www.volcengine.com/docs/82379/1544106",
       "notes": "缓存命中输入 ¥0.64;阶梯:(32,128]K ¥4.8/¥24,(128,256]K ¥9.6/¥48",
       "observedAt": "2026-07-25",
-      "inputUSD": 0.471844,
-      "outputUSD": 2.35922
+      "inputUSD": 0.471551,
+      "outputUSD": 2.35776
     },
     {
       "vendor": "腾讯混元",
@@ -339,8 +339,8 @@
       "sourceUrl": "https://cloud.tencent.com/document/product/1729/97731",
       "notes": "混元服务正迁移至 TokenHub",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.0737256,
-      "outputUSD": 0.294902
+      "inputUSD": 0.0736799,
+      "outputUSD": 0.294719
     },
     {
       "vendor": "智谱",
@@ -355,8 +355,8 @@
       "sourceUrl": "https://open.bigmodel.cn/pricing",
       "notes": "高档 ¥1.2/¥8;缓存 ¥0.16",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.117961,
-      "outputUSD": 0.294902
+      "inputUSD": 0.117888,
+      "outputUSD": 0.294719
     },
     {
       "vendor": "智谱",
@@ -371,8 +371,8 @@
       "sourceUrl": "https://open.bigmodel.cn/pricing",
       "notes": "长输入/长输出高档 ¥3-4/¥14-16;缓存 ¥0.4",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.294902,
-      "outputUSD": 1.17961
+      "inputUSD": 0.294719,
+      "outputUSD": 1.17888
     },
     {
       "vendor": "智谱",
@@ -403,8 +403,8 @@
       "sourceUrl": "https://open.bigmodel.cn/pricing",
       "notes": "缓存 ¥0.1",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.0737256,
-      "outputUSD": 0.442354
+      "inputUSD": 0.0736799,
+      "outputUSD": 0.442079
     },
     {
       "vendor": "智谱",
@@ -419,8 +419,8 @@
       "sourceUrl": "https://open.bigmodel.cn/pricing",
       "notes": "输入≥32K 档 ¥6/¥22;缓存 ¥1",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.589805,
-      "outputUSD": 2.65412
+      "inputUSD": 0.589439,
+      "outputUSD": 2.65247
     },
     {
       "vendor": "智谱",
@@ -435,8 +435,8 @@
       "sourceUrl": "https://open.bigmodel.cn/pricing",
       "notes": "输入≥32K 档 ¥7/¥26;缓存 ¥1.2",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.737256,
-      "outputUSD": 3.24393
+      "inputUSD": 0.736799,
+      "outputUSD": 3.24191
     },
     {
       "vendor": "智谱",
@@ -451,8 +451,8 @@
       "sourceUrl": "https://open.bigmodel.cn/pricing",
       "notes": "输入≥32K 档 ¥8/¥28;缓存 ¥1.3",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.884707,
-      "outputUSD": 3.53883
+      "inputUSD": 0.884158,
+      "outputUSD": 3.53663
     },
     {
       "vendor": "智谱",
@@ -467,8 +467,8 @@
       "sourceUrl": "https://open.bigmodel.cn/pricing",
       "notes": "缓存输入 ¥2",
       "observedAt": "2026-07-23",
-      "inputUSD": 1.17961,
-      "outputUSD": 4.12863
+      "inputUSD": 1.17888,
+      "outputUSD": 4.12607
     },
     {
       "vendor": "Anthropic",
@@ -843,8 +843,8 @@
       "sourceUrl": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing",
       "notes": "缓存命中输入 ¥0.02;原 deepseek-chat/reasoner 已并入此模型",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.147451,
-      "outputUSD": 0.294902
+      "inputUSD": 0.14736,
+      "outputUSD": 0.294719
     },
     {
       "vendor": "DeepSeek",
@@ -859,8 +859,8 @@
       "sourceUrl": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing",
       "notes": "缓存命中输入 ¥0.025",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.442354,
-      "outputUSD": 0.884707
+      "inputUSD": 0.442079,
+      "outputUSD": 0.884158
     },
     {
       "vendor": "Google",
@@ -1295,8 +1295,8 @@
       "sourceUrl": "https://platform.moonshot.cn/docs/pricing/chat-k25",
       "notes": "缓存命中输入 ¥0.7",
       "observedAt": "2026-07-25",
-      "inputUSD": 0.589805,
-      "outputUSD": 3.09648
+      "inputUSD": 0.589439,
+      "outputUSD": 3.09455
     },
     {
       "vendor": "Kimi",
@@ -1311,8 +1311,8 @@
       "sourceUrl": "https://platform.moonshot.cn/docs/pricing/chat-k26",
       "notes": "缓存命中输入 ¥1.1",
       "observedAt": "2026-07-25",
-      "inputUSD": 0.958433,
-      "outputUSD": 3.98118
+      "inputUSD": 0.957838,
+      "outputUSD": 3.97871
     },
     {
       "vendor": "Kimi",
@@ -1327,8 +1327,8 @@
       "sourceUrl": "https://platform.moonshot.cn/docs/pricing/chat-k27-code",
       "notes": "缓存命中输入 ¥1.3",
       "observedAt": "2026-07-25",
-      "inputUSD": 0.958433,
-      "outputUSD": 3.98118
+      "inputUSD": 0.957838,
+      "outputUSD": 3.97871
     },
     {
       "vendor": "Kimi",
@@ -1343,8 +1343,8 @@
       "sourceUrl": "https://platform.moonshot.cn/docs/pricing/chat-k27-code",
       "notes": "高速版(约 180 tokens/s);缓存命中输入 ¥2.6",
       "observedAt": "2026-07-25",
-      "inputUSD": 1.91687,
-      "outputUSD": 7.96237
+      "inputUSD": 1.91568,
+      "outputUSD": 7.95742
     },
     {
       "vendor": "Kimi",
@@ -1359,8 +1359,8 @@
       "sourceUrl": "https://platform.moonshot.cn/docs/pricing/chat-k3",
       "notes": "缓存命中输入 ¥2;国际站美元价 $3/$15",
       "observedAt": "2026-07-25",
-      "inputUSD": 2.94902,
-      "outputUSD": 14.7451
+      "inputUSD": 2.94719,
+      "outputUSD": 14.736
     },
     {
       "vendor": "MiniMax",
@@ -1375,8 +1375,8 @@
       "sourceUrl": "https://platform.minimaxi.com/docs/guides/pricing-paygo",
       "notes": "缓存读 ¥0.42",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.309648,
-      "outputUSD": 1.23859
+      "inputUSD": 0.309455,
+      "outputUSD": 1.23782
     },
     {
       "vendor": "MiniMax",
@@ -1391,8 +1391,8 @@
       "sourceUrl": "https://platform.minimaxi.com/docs/guides/pricing-paygo",
       "notes": "高速版",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.619295,
-      "outputUSD": 2.47718
+      "inputUSD": 0.618911,
+      "outputUSD": 2.47564
     },
     {
       "vendor": "MiniMax",
@@ -1407,8 +1407,8 @@
       "sourceUrl": "https://platform.minimaxi.com/docs/guides/pricing-paygo",
       "notes": "≤512K 输入档(永久五折后);>512K 档 ¥4.2/¥16.8;缓存读 ¥0.42;优先服务 1.5×",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.309648,
-      "outputUSD": 1.23859
+      "inputUSD": 0.309455,
+      "outputUSD": 1.23782
     },
     {
       "vendor": "Mistral",
