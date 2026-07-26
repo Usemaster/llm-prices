@@ -4,41 +4,55 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LLM API 价格对比 — 国内外主流大模型</title>
-<link rel="icon" href="data:,">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='3' y='12' width='4' height='9' rx='1' fill='%230F62FE'/%3E%3Crect x='10' y='7' width='4' height='14' rx='1' fill='%23D97757'/%3E%3Crect x='17' y='3' width='4' height='18' rx='1' fill='%235786FE'/%3E%3C/svg%3E">
 <meta name="description" content="国内外主流大模型 API 价格对比:OpenAI、Anthropic、Google、xAI、Mistral、DeepSeek、阿里、智谱、Kimi、豆包、混元、MiniMax,支持成本估算与币种切换。">
 <style>
   :root {
-    --bg: #fafbfc; --panel: #fff; --border: #e1e5ea; --text: #1a1f26;
-    --muted: #6b7280; --accent: #0f62fe; --accent-bg: #eaf1ff;
+    --bg: #f5f6f8; --panel: #ffffff; --border: #e4e7ec; --border-soft: #eef0f3;
+    --text: #16181d; --muted: #6b7280; --accent: #0f62fe; --accent-bg: #eaf1ff;
     --cn: #c2410c; --intl: #1d4ed8; --good: #047857;
     --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+    --shadow: 0 1px 2px rgba(16,24,40,.04), 0 1px 3px rgba(16,24,40,.06);
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #0d1117; --panel: #161b22; --border: #2d333b; --text: #e6edf3;
-      --muted: #8b949e; --accent: #58a6ff; --accent-bg: #12233d;
-      --cn: #fb923c; --intl: #60a5fa; --good: #34d399;
+      --bg: #131316; --panel: #1b1b1f; --border: #2c2c33; --border-soft: #232329;
+      --text: #e8e9ec; --muted: #9a9aa3; --accent: #6b9bff; --accent-bg: #1e2a45;
+      --cn: #fb923c; --intl: #7aa5f8; --good: #34d399;
+      --shadow: 0 1px 2px rgba(0,0,0,.3);
     }
+    .logo-inv { filter: invert(1); }
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font: 14px/1.5 -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; }
-  .wrap { max-width: 1200px; margin: 0 auto; padding: 20px 16px 60px; }
+  body { background: var(--bg); color: var(--text); font: 14px/1.55 -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 24px 16px 64px; }
 
-  header.top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px; margin-bottom: 4px; }
-  h1 { font-size: 20px; font-weight: 700; }
+  header.top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; }
+  h1 { font-size: 21px; font-weight: 700; letter-spacing: -0.01em; }
   .meta { color: var(--muted); font-size: 12.5px; }
   .meta b { color: var(--text); font-weight: 600; }
 
-  .panel { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; }
+  .panel { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--shadow); }
 
   /* 工具栏 */
-  .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 10px 12px; margin: 14px 0 10px; }
+  .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 10px 12px; margin: 16px 0 10px; }
   .toolbar input[type="search"] { flex: 1 1 200px; min-width: 160px; }
-  input, select, button { font: inherit; color: inherit; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 6px 10px; }
+  input, select, button { font: inherit; color: inherit; background: var(--bg); border: 1px solid var(--border); border-radius: 7px; padding: 6px 10px; }
   input:focus, select:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
-  .seg { display: inline-flex; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+  .seg { display: inline-flex; border: 1px solid var(--border); border-radius: 7px; overflow: hidden; }
   .seg button { border: 0; border-radius: 0; background: transparent; padding: 6px 12px; cursor: pointer; color: var(--muted); }
   .seg button.on { background: var(--accent); color: #fff; }
+
+  /* 厂商 chips: 过滤器 + 图例 */
+  .vendors { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 12px; margin-bottom: 10px; }
+  .vchip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px 4px 5px; border: 1px solid var(--border); border-radius: 999px; background: transparent; cursor: pointer; font-size: 12.5px; color: var(--muted); transition: background .12s, border-color .12s, color .12s; }
+  .vchip:hover { border-color: var(--vc); color: var(--text); }
+  .vchip.on { background: color-mix(in srgb, var(--vc) 12%, transparent); border-color: var(--vc); color: var(--text); font-weight: 600; }
+  .vchip .cnt { font-size: 11px; color: var(--muted); font-family: var(--mono); }
+  .vlogo { width: 20px; height: 20px; border-radius: 50%; background: color-mix(in srgb, var(--vc) 10%, #fff); display: inline-flex; align-items: center; justify-content: center; flex: none; }
+  @media (prefers-color-scheme: dark) { .vlogo { background: color-mix(in srgb, var(--vc) 18%, #000); } }
+  .vlogo img { width: 13px; height: 13px; object-fit: contain; }
+  .vlogo .letter { font-size: 11px; font-weight: 700; color: var(--vc); }
 
   /* 计算器 */
   .calc { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; padding: 10px 12px; margin-bottom: 10px; font-size: 13px; }
@@ -49,16 +63,17 @@
   /* 表格 */
   .table-box { overflow-x: auto; }
   table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
-  thead th { position: sticky; top: 0; background: var(--panel); text-align: left; font-size: 12px; color: var(--muted); font-weight: 600; padding: 9px 10px; border-bottom: 1px solid var(--border); white-space: nowrap; cursor: pointer; user-select: none; }
+  thead th { position: sticky; top: 0; z-index: 2; background: var(--panel); text-align: left; font-size: 12px; color: var(--muted); font-weight: 600; padding: 10px; border-bottom: 1px solid var(--border); white-space: nowrap; cursor: pointer; user-select: none; }
   thead th:hover { color: var(--accent); }
   thead th .arrow { font-size: 10px; }
   th.num, td.num { text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums; }
-  tbody td { padding: 7px 10px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  tbody td { padding: 7px 10px; border-bottom: 1px solid var(--border-soft); white-space: nowrap; }
   tbody tr.row { cursor: pointer; }
-  tbody tr.row:hover { background: var(--accent-bg); }
-  tbody tr.row.open { background: var(--accent-bg); }
+  tbody tr.row:hover { background: color-mix(in srgb, var(--vc, #888) 6%, transparent); }
+  tbody tr.row.open { background: color-mix(in srgb, var(--vc, #888) 9%, transparent); }
   .vendor { font-weight: 600; }
-  .badge { display: inline-block; font-size: 11px; padding: 1px 6px; border-radius: 4px; margin-left: 6px; vertical-align: 1px; }
+  .vcell { display: inline-flex; align-items: center; gap: 8px; }
+  .badge { display: inline-block; font-size: 10.5px; padding: 0 5px; border-radius: 4px; margin-left: 2px; vertical-align: 1px; }
   .badge.cn { color: var(--cn); border: 1px solid currentColor; }
   .badge.intl { color: var(--intl); border: 1px solid currentColor; }
   .model-name { font-family: var(--mono); font-size: 12.5px; }
@@ -81,6 +96,8 @@
     <span class="meta" id="meta">加载中…</span>
   </header>
 
+  <div class="panel vendors" id="vendorBar"></div>
+
   <div class="panel toolbar">
     <input type="search" id="q" placeholder="搜索模型 / 厂商…">
     <div class="seg" id="regionSeg">
@@ -88,7 +105,6 @@
       <button data-v="cn">国内</button>
       <button data-v="intl">国外</button>
     </div>
-    <select id="vendorSel"><option value="">全部厂商</option></select>
     <div class="seg" id="curSeg">
       <button data-v="USD">USD $</button>
       <button data-v="CNY" class="on">CNY ¥</button>
@@ -111,13 +127,44 @@
   </div>
 
   <footer>
-    <p>价格单位:每 100 万 token。国际厂商数据来自 LiteLLM / OpenRouter 公开价格库,国内厂商数据为人工整理自官方定价页,每行附来源链接。价格可能滞后或存在阶梯价、缓存价、限时优惠等情况,<b>实际计费请以各厂商官网为准</b>。</p>
+    <p>价格单位:每 100 万 token。国际厂商数据来自 LiteLLM / OpenRouter 公开价格库,国内厂商数据为人工整理自官方定价页,每行附来源链接。价格可能滞后或存在阶梯价、缓存价、限时优惠等情况,<b>实际计费请以各厂商官网为准</b>。Logo 版权归各厂商所有,仅作识别用途。</p>
     <p>数据来源:<a href="https://github.com/BerriAI/litellm" target="_blank" rel="noopener">LiteLLM</a> · <a href="https://openrouter.ai" target="_blank" rel="noopener">OpenRouter</a> · 各厂商官方定价页</p>
   </footer>
 </div>
 
 <script>
 "use strict";
+
+// 厂商视觉档案: logo + 品牌色; invert = 黑色 logo,深色模式下反白
+const VENDOR_META = {
+  "OpenAI":    { logo: "assets/logos/openai.svg",    color: "#10A37F", invert: true },
+  "Anthropic": { logo: "assets/logos/anthropic.svg", color: "#D97757" },
+  "Google":    { logo: "assets/logos/google.svg",    color: "#8E75B2" },
+  "xAI":       { logo: "assets/logos/xai.ico",       color: "#52525B", invert: true },
+  "Mistral":   { logo: "assets/logos/mistral.svg",   color: "#FA520F" },
+  "DeepSeek":  { logo: "assets/logos/deepseek.svg",  color: "#5786FE" },
+  "智谱":      { logo: "assets/logos/zhipu.ico",     color: "#3858E9" },
+  "阿里百炼":  { logo: "assets/logos/aliyun.ico",    color: "#FF6A00" },
+  "Kimi":      { logo: "assets/logos/kimi.ico",      color: "#52525B", invert: true },
+  "豆包":      { logo: "assets/logos/doubao.ico",    color: "#F53F3F" },
+  "腾讯混元":  { logo: "assets/logos/hunyuan.ico",   color: "#0052D9" },
+  "MiniMax":   { logo: "assets/logos/minimax.ico",   color: "#2448F3" },
+};
+const FALLBACK_COLORS = ["#0F62FE","#9333EA","#DB2777","#EA580C","#059669","#0284C7"];
+let fallbackIdx = 0;
+function vendorMeta(name) {
+  if (!VENDOR_META[name]) {
+    VENDOR_META[name] = { logo: null, color: FALLBACK_COLORS[fallbackIdx++ % FALLBACK_COLORS.length] };
+  }
+  return VENDOR_META[name];
+}
+function vlogoHtml(name, size) {
+  const m = vendorMeta(name);
+  const inner = m.logo
+    ? `<img src="${m.logo}" alt="" loading="lazy"${m.invert ? ' class="logo-inv"' : ""} onerror="this.parentNode.innerHTML='<span class=letter>${name[0]}</span>'">`
+    : `<span class="letter">${name[0]}</span>`;
+  return `<span class="vlogo" style="--vc:${m.color}">${inner}</span>`;
+}
 
 const state = {
   data: null, currency: "CNY", region: "all", vendor: "", q: "",
@@ -175,6 +222,22 @@ function renderHead(costOn) {
   }));
 }
 
+function renderVendorBar() {
+  const counts = {};
+  for (const m of state.data.models) counts[m.vendor] = (counts[m.vendor] || 0) + 1;
+  const vendors = Object.keys(counts).sort((a, b) => a.localeCompare(b, "zh-Hans-CN"));
+  $("#vendorBar").innerHTML = vendors.map((v) => {
+    const m = vendorMeta(v);
+    return `<button class="vchip${state.vendor === v ? " on" : ""}" data-v="${v}" style="--vc:${m.color}">${vlogoHtml(v)}${v}<span class="cnt">${counts[v]}</span></button>`;
+  }).join("");
+  $("#vendorBar").querySelectorAll(".vchip").forEach((chip) => chip.addEventListener("click", () => {
+    state.vendor = state.vendor === chip.dataset.v ? "" : chip.dataset.v;
+    state.openRow = null;
+    renderVendorBar();
+    render();
+  }));
+}
+
 function detailRow(m) {
   const rows = [
     ["API model id", m.modelId],
@@ -193,13 +256,14 @@ function render() {
   const list = visibleModels();
   $("#empty").hidden = list.length > 0;
   const html = [];
-  list.forEach((m, i) => {
+  list.forEach((m) => {
     const key = m.vendor + "|" + m.modelId;
+    const vm = vendorMeta(m.vendor);
     const badge = m.region === "cn" ? '<span class="badge cn">国内</span>' : '<span class="badge intl">国外</span>';
     const cost = costOn ? `<td class="num cost">${fmtNum(price(m.inputUSD * state.calcIn + m.outputUSD * state.calcOut))}</td>` : "";
     const free = m.inputUSD === 0 && m.outputUSD === 0;
-    html.push(`<tr class="row${state.openRow === key ? " open" : ""}" data-key="${key}" data-i="${i}">
-      <td class="vendor">${m.vendor}${badge}</td>
+    html.push(`<tr class="row${state.openRow === key ? " open" : ""}" data-key="${key}" style="--vc:${vm.color}">
+      <td class="vendor"><span class="vcell">${vlogoHtml(m.vendor)}${m.vendor}${badge}</span></td>
       <td class="model-name">${m.model}</td>
       <td class="num">${free ? "免费" : fmtNum(price(m.inputUSD))}</td>
       <td class="num">${free ? "免费" : fmtNum(price(m.outputUSD))}</td>
@@ -221,11 +285,7 @@ async function init() {
   const d = new Date(state.data.updatedAt);
   $("#meta").innerHTML = `共 <b>${state.data.count}</b> 个模型 · 数据更新于 <b>${d.toLocaleString("zh-CN")}</b> · 汇率 1 USD = <b>${state.data.fx.USD_CNY.toFixed(2)}</b> CNY`;
 
-  const vendors = [...new Set(state.data.models.map((m) => m.vendor))].sort((a, b) => a.localeCompare(b, "zh-Hans-CN"));
-  $("#vendorSel").innerHTML = '<option value="">全部厂商</option>' + vendors.map((v) => `<option>${v}</option>`).join("");
-
   $("#q").addEventListener("input", (e) => { state.q = e.target.value; state.openRow = null; render(); });
-  $("#vendorSel").addEventListener("change", (e) => { state.vendor = e.target.value; state.openRow = null; render(); });
   $("#regionSeg").addEventListener("click", (e) => {
     if (e.target.tagName !== "BUTTON") return;
     state.region = e.target.dataset.v; state.openRow = null;
@@ -248,6 +308,7 @@ async function init() {
   $("#calcIn").addEventListener("input", onCalc);
   $("#calcOut").addEventListener("input", onCalc);
 
+  renderVendorBar();
   render();
 }
 
