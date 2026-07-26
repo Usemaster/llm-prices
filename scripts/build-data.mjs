@@ -6,6 +6,7 @@
  *   1. LiteLLM model_prices_and_context_window.json (国际厂商主源)
  *   2. OpenRouter /api/v1/models (国际厂商补充源, 仅补 LiteLLM 缺失的模型)
  *   3. data/manual-cn.json (国内厂商, 手工维护)
+ *   4. data/coding-plans.json (Coding Plan 订阅套餐, 全部手工维护)
  *
  * 用法: node scripts/build-data.mjs
  * 输出: prices.json (仓库根目录, 由页面直接 fetch)
@@ -151,6 +152,24 @@ function fromManualCN() {
   }));
 }
 
+// Coding Plan 订阅套餐: 手工维护, 折算每档月价为 USD, 并计算入门价/最高价供排序与区间展示
+function fromCodingPlans(fx) {
+  const raw = JSON.parse(readFileSync(join(ROOT, "data", "coding-plans.json"), "utf8"));
+  return (raw.plans ?? []).map((p) => {
+    const tiers = (p.tiers ?? []).map((t) => ({
+      ...t,
+      monthlyUSD: t.monthly == null ? null : +(t.currency === "USD" ? t.monthly : t.monthly / fx).toPrecision(6),
+    }));
+    const priced = tiers.map((t) => t.monthlyUSD).filter((v) => v != null);
+    return {
+      ...p,
+      tiers,
+      entryUSD: priced.length ? Math.min(...priced) : null,
+      maxUSD: priced.length ? Math.max(...priced) : null,
+    };
+  });
+}
+
 // 同族不同版本快照去重: 如 magistral-medium-2506/-2509 只留最新,
 // 有裸名(gpt-4)与日期版(gpt-4-0613)并存时只留裸名(通常指向最新版)
 function dedupeVersions(models) {
@@ -189,6 +208,9 @@ function main() {
     const cn = fromManualCN();
     console.log(`[manual-cn] ${cn.length} 个国内模型`);
 
+    const plans = fromCodingPlans(fx);
+    console.log(`[coding-plans] ${plans.length} 个套餐`);
+
     const intl = dedupeVersions([...litellm, ...openrouter]);
     console.log(`[dedupe] 国际模型 ${litellm.length + openrouter.length} -> ${intl.length}`);
 
@@ -206,9 +228,11 @@ function main() {
       fx: { USD_CNY: fx, source: fx === FX_FALLBACK ? "fallback" : "open.er-api.com" },
       count: models.length,
       models,
+      plans,
+      plansCount: plans.length,
     };
     writeFileSync(join(ROOT, "prices.json"), JSON.stringify(out, null, 2) + "\n");
-    console.log(`[done] ${models.length} 个模型 -> prices.json`);
+    console.log(`[done] ${models.length} 个模型 + ${plans.length} 个套餐 -> prices.json`);
   })();
 }
 

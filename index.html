@@ -24,6 +24,7 @@
     .logo-inv { filter: invert(1); }
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  [hidden] { display: none !important; }
   body { background: var(--bg); color: var(--text); font: 14px/1.55 -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; }
   .wrap { max-width: 1240px; margin: 0 auto; padding: 24px 16px 64px; }
 
@@ -77,6 +78,7 @@
   .badge.cn { color: var(--cn); border: 1px solid currentColor; }
   .badge.intl { color: var(--intl); border: 1px solid currentColor; }
   .model-name { font-family: var(--mono); font-size: 12.5px; }
+  td.models-cell { max-width: 280px; overflow: hidden; text-overflow: ellipsis; }
   td.detail { white-space: normal; background: var(--bg); font-size: 12.5px; color: var(--muted); padding: 10px 14px; }
   td.detail dl { display: grid; grid-template-columns: max-content 1fr; gap: 3px 14px; }
   td.detail dt { color: var(--muted); }
@@ -84,6 +86,22 @@
   td.detail a { color: var(--accent); }
   .cost { color: var(--good); font-weight: 600; }
   .empty { text-align: center; color: var(--muted); padding: 40px 0; }
+
+  /* Tab 切换 */
+  .tabs { display: inline-flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin: 14px 0 12px; }
+  .tabs button { border: 0; border-radius: 0; background: var(--panel); padding: 7px 16px; cursor: pointer; color: var(--muted); font-weight: 600; }
+  .tabs button.on { background: var(--accent); color: #fff; }
+  .badge.cat-vendor { color: var(--good); border: 1px solid currentColor; }
+  .badge.cat-tool { color: var(--muted); border: 1px solid currentColor; }
+
+  /* 套餐详情: 档位列表 */
+  td.detail .tiers { margin: 2px 0 10px; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  td.detail .tier { display: grid; grid-template-columns: 130px minmax(120px, max-content) 1fr; gap: 3px 16px; padding: 8px 12px; border-bottom: 1px solid var(--border-soft); background: var(--panel); }
+  td.detail .tier:last-child { border-bottom: 0; }
+  td.detail .tier .tname { font-weight: 600; color: var(--text); }
+  td.detail .tier .tprice { font-family: var(--mono); color: var(--text); white-space: nowrap; }
+  td.detail .tier .tannual { display: block; font-size: 11.5px; color: var(--muted); font-family: inherit; }
+  td.detail .tier .tquota { color: var(--muted); }
 
   footer { margin-top: 18px; color: var(--muted); font-size: 12px; line-height: 1.8; }
   footer a { color: var(--accent); text-decoration: none; }
@@ -96,6 +114,11 @@
     <span class="meta" id="meta">加载中…</span>
   </header>
 
+  <div class="tabs" id="tabSeg">
+    <button data-v="api" class="on">API 按量价格</button>
+    <button data-v="plans">Coding Plan 套餐</button>
+  </div>
+
   <div class="panel vendors" id="vendorBar"></div>
 
   <div class="panel toolbar">
@@ -105,13 +128,18 @@
       <button data-v="cn">国内</button>
       <button data-v="intl">国外</button>
     </div>
+    <div class="seg" id="catSeg" hidden>
+      <button data-v="all" class="on">全部类型</button>
+      <button data-v="vendor">厂商自营</button>
+      <button data-v="tool">第三方工具</button>
+    </div>
     <div class="seg" id="curSeg">
       <button data-v="USD">USD $</button>
       <button data-v="CNY" class="on">CNY ¥</button>
     </div>
   </div>
 
-  <div class="panel calc">
+  <div class="panel calc" id="calcPanel">
     <strong>成本计算器</strong>
     <label>每月输入 <input type="number" id="calcIn" min="0" step="any" placeholder="0"> 百万 token</label>
     <label>每月输出 <input type="number" id="calcOut" min="0" step="any" placeholder="0"> 百万 token</label>
@@ -149,6 +177,13 @@ const VENDOR_META = {
   "豆包":      { logo: "assets/logos/doubao.ico",    color: "#F53F3F" },
   "腾讯混元":  { logo: "assets/logos/hunyuan.ico",   color: "#0052D9" },
   "MiniMax":   { logo: "assets/logos/minimax.ico",   color: "#2448F3" },
+  "GitHub":    { logo: null, color: "#8250DF" },
+  "Cursor":    { logo: null, color: "#52525B" },
+  "Windsurf":  { logo: null, color: "#0EA5E9" },
+  "字节":      { logo: "assets/logos/doubao.ico",    color: "#325AB4" },
+  "阿里":      { logo: "assets/logos/alibabacloud.svg", color: "#FF6A00" },
+  "百度":      { logo: null, color: "#2932E1" },
+  "腾讯":      { logo: "assets/logos/hunyuan.ico",   color: "#0052D9" },
 };
 const FALLBACK_COLORS = ["#0F62FE","#9333EA","#DB2777","#EA580C","#059669","#0284C7"];
 let fallbackIdx = 0;
@@ -168,6 +203,7 @@ function vlogoHtml(name, size) {
 
 const state = {
   data: null, currency: "CNY", region: "all", vendor: "", q: "",
+  tab: "api", category: "all",
   sortKey: "inputUSD", sortDir: 1, openRow: null,
   calcIn: 0, calcOut: 0,
 };
@@ -204,15 +240,21 @@ function visibleModels() {
 }
 
 function renderHead(costOn) {
-  const cols = [
-    ["vendor", "厂商"], ["model", "模型", 0], ["inputUSD", `输入价 ${sym()}`, 1],
-    ["outputUSD", `输出价 ${sym()}`, 1], ["context", "上下文", 1],
-  ];
-  if (costOn) cols.push(["cost", `月成本 ${sym()}`, 1]);
-  $("#headRow").innerHTML = cols.map(([k, label, num]) => {
+  // [key, label, 数字右对齐, 可排序]
+  const cols = state.tab === "plans"
+    ? [
+      ["vendor", "厂商", 0, 1], ["plan", "套餐", 0, 0], ["cat", "类型", 0, 0],
+      ["entryUSD", `月价 ${sym()}`, 1, 1], ["quotaModel", "计量方式", 0, 0], ["models", "可用模型", 0, 0],
+    ]
+    : [
+      ["vendor", "厂商", 0, 1], ["model", "模型", 0, 0], ["inputUSD", `输入价 ${sym()}`, 1, 1],
+      ["outputUSD", `输出价 ${sym()}`, 1, 1], ["context", "上下文", 1, 1],
+    ];
+  if (state.tab === "api" && costOn) cols.push(["cost", `月成本 ${sym()}`, 1, 1]);
+  $("#headRow").innerHTML = cols.map(([k, label, num, sortable]) => {
     const arrow = state.sortKey === k ? `<span class="arrow">${state.sortDir > 0 ? "▲" : "▼"}</span>` : "";
     const cls = num ? ' class="num"' : "";
-    return k === "model" ? `<th${cls}>${label}</th>` : `<th${cls} data-sort="${k}">${label} ${arrow}</th>`;
+    return sortable ? `<th${cls} data-sort="${k}">${label} ${arrow}</th>` : `<th${cls}>${label}</th>`;
   }).join("");
   $("#headRow").querySelectorAll("[data-sort]").forEach((th) => th.addEventListener("click", () => {
     const k = th.dataset.sort;
@@ -222,9 +264,13 @@ function renderHead(costOn) {
   }));
 }
 
+function currentList() {
+  return state.tab === "api" ? state.data.models : (state.data.plans ?? []);
+}
+
 function renderVendorBar() {
   const counts = {};
-  for (const m of state.data.models) counts[m.vendor] = (counts[m.vendor] || 0) + 1;
+  for (const m of currentList()) counts[m.vendor] = (counts[m.vendor] || 0) + 1;
   const vendors = Object.keys(counts).sort((a, b) => a.localeCompare(b, "zh-Hans-CN"));
   $("#vendorBar").innerHTML = vendors.map((v) => {
     const m = vendorMeta(v);
@@ -236,6 +282,40 @@ function renderVendorBar() {
     renderVendorBar();
     render();
   }));
+}
+
+function visiblePlans() {
+  const q = state.q.trim().toLowerCase();
+  let list = (state.data.plans ?? []).filter((p) => {
+    if (state.region !== "all" && p.region !== state.region) return false;
+    if (state.category !== "all" && p.category !== state.category) return false;
+    if (state.vendor && p.vendor !== state.vendor) return false;
+    if (q && !(p.plan.toLowerCase().includes(q) || p.vendor.toLowerCase().includes(q))) return false;
+    return true;
+  });
+  list.sort((a, b) => {
+    if (state.sortKey === "vendor") {
+      return a.vendor.localeCompare(b.vendor, "zh-Hans-CN") * state.sortDir || ((a.entryUSD ?? 1e9) - (b.entryUSD ?? 1e9)) * state.sortDir;
+    }
+    return ((a.entryUSD ?? 1e9) - (b.entryUSD ?? 1e9)) * state.sortDir;
+  });
+  return list;
+}
+
+function planDetailRow(p) {
+  const tierHtml = p.tiers.map((t) => {
+    const orig = t.monthly == null ? "定制报价" : `${t.currency === "USD" ? "$" : "¥"}${fmtNum(t.monthly)}/月`;
+    return `<div class="tier"><span class="tname">${t.name}</span><span class="tprice">${orig}${t.annualNote ? `<span class="tannual">${t.annualNote}</span>` : ""}</span><span class="tquota">${t.quota}</span></div>`;
+  }).join("");
+  const rows = [
+    ["可用模型", p.models],
+    ["接入方式", p.clients],
+  ];
+  if (p.freeTier) rows.push(["免费档", p.freeTier]);
+  rows.push(["官方定价页", p.sourceUrl ? `<a href="${p.sourceUrl}" target="_blank" rel="noopener">${p.sourceUrl}</a>` : "—"]);
+  if (p.observedAt) rows.push(["人工核对日期", p.observedAt]);
+  if (p.notes) rows.push(["备注", p.notes]);
+  return `<tr class="detail"><td colspan="10" class="detail"><div class="tiers">${tierHtml}</div><dl>${rows.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl></td></tr>`;
 }
 
 function detailRow(m) {
@@ -250,7 +330,37 @@ function detailRow(m) {
   return `<tr class="detail"><td colspan="10" class="detail"><dl>${rows.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl></td></tr>`;
 }
 
+function renderPlans() {
+  renderHead(false);
+  const list = visiblePlans();
+  $("#empty").hidden = list.length > 0;
+  const html = [];
+  list.forEach((p) => {
+    const key = p.vendor + "|" + p.plan;
+    const vm = vendorMeta(p.vendor);
+    const badge = p.region === "cn" ? '<span class="badge cn">国内</span>' : '<span class="badge intl">国外</span>';
+    const cat = p.category === "vendor" ? '<span class="badge cat-vendor">自营</span>' : '<span class="badge cat-tool">工具</span>';
+    const lo = price(p.entryUSD), hi = price(p.maxUSD);
+    const range = lo == null ? "—" : lo === hi ? fmtNum(lo) : `${fmtNum(lo)}–${fmtNum(hi)}`;
+    html.push(`<tr class="row${state.openRow === key ? " open" : ""}" data-key="${key}" style="--vc:${vm.color}">
+      <td class="vendor"><span class="vcell">${vlogoHtml(p.vendor)}${p.vendor}${badge}</span></td>
+      <td>${p.plan}</td>
+      <td>${cat}</td>
+      <td class="num">${range}</td>
+      <td>${p.quotaModel}</td>
+      <td class="models-cell" title="${p.models}">${p.models}</td>
+    </tr>`);
+    if (state.openRow === key) html.push(planDetailRow(p));
+  });
+  $("#bodyRows").innerHTML = html.join("");
+  $("#bodyRows").querySelectorAll("tr.row").forEach((tr) => tr.addEventListener("click", () => {
+    state.openRow = state.openRow === tr.dataset.key ? null : tr.dataset.key;
+    render();
+  }));
+}
+
 function render() {
+  if (state.tab === "plans") return renderPlans();
   const costOn = state.calcIn > 0 || state.calcOut > 0;
   renderHead(costOn);
   const list = visibleModels();
@@ -278,12 +388,40 @@ function render() {
   }));
 }
 
+function updateMeta() {
+  const d = new Date(state.data.updatedAt);
+  const n = state.tab === "plans" ? (state.data.plansCount ?? (state.data.plans ?? []).length) : state.data.count;
+  const unit = state.tab === "plans" ? "个套餐" : "个模型";
+  $("#meta").innerHTML = `共 <b>${n}</b> ${unit} · 数据更新于 <b>${d.toLocaleString("zh-CN")}</b> · 汇率 1 USD = <b>${state.data.fx.USD_CNY.toFixed(2)}</b> CNY`;
+}
+
 async function init() {
   const res = await fetch("prices.json", { cache: "no-cache" });
   state.data = await res.json();
 
-  const d = new Date(state.data.updatedAt);
-  $("#meta").innerHTML = `共 <b>${state.data.count}</b> 个模型 · 数据更新于 <b>${d.toLocaleString("zh-CN")}</b> · 汇率 1 USD = <b>${state.data.fx.USD_CNY.toFixed(2)}</b> CNY`;
+  updateMeta();
+
+  $("#tabSeg").addEventListener("click", (e) => {
+    if (e.target.tagName !== "BUTTON") return;
+    state.tab = e.target.dataset.v;
+    state.vendor = ""; state.q = ""; $("#q").value = "";
+    state.openRow = null;
+    state.sortKey = state.tab === "plans" ? "entryUSD" : "inputUSD";
+    state.sortDir = 1;
+    $("#tabSeg").querySelectorAll("button").forEach((b) => b.classList.toggle("on", b === e.target));
+    $("#catSeg").hidden = state.tab !== "plans";
+    $("#calcPanel").hidden = state.tab !== "api";
+    $("#q").placeholder = state.tab === "plans" ? "搜索套餐 / 厂商…" : "搜索模型 / 厂商…";
+    updateMeta();
+    renderVendorBar();
+    render();
+  });
+  $("#catSeg").addEventListener("click", (e) => {
+    if (e.target.tagName !== "BUTTON") return;
+    state.category = e.target.dataset.v; state.openRow = null;
+    $("#catSeg").querySelectorAll("button").forEach((b) => b.classList.toggle("on", b === e.target));
+    render();
+  });
 
   $("#q").addEventListener("input", (e) => { state.q = e.target.value; state.openRow = null; render(); });
   $("#regionSeg").addEventListener("click", (e) => {

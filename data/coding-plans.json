@@ -1,0 +1,283 @@
+{
+  "updatedAt": "2026-07-26",
+  "plans": [
+    {
+      "vendor": "Anthropic",
+      "plan": "Claude Pro/Max",
+      "category": "vendor",
+      "region": "intl",
+      "quotaModel": "5 小时窗口 + 周上限",
+      "tiers": [
+        { "name": "Pro", "monthly": 20, "currency": "USD", "annualNote": "年付 $17/月（预付 $200）", "quota": "按 5 小时滚动会话窗口计量，用量至少为 Free 的 5 倍；付费档另叠加每周上限，无固定消息条数；Claude Code 与网页/桌面聊天共享同一额度池" },
+        { "name": "Max 5x", "monthly": 100, "currency": "USD", "annualNote": "", "quota": "每 5 小时会话用量为 Pro 的 5 倍，另有每周上限；更高输出上限，高峰时段优先访问；Claude Code 共享额度" },
+        { "name": "Max 20x", "monthly": 200, "currency": "USD", "annualNote": "", "quota": "每 5 小时会话用量为 Pro 的 20 倍，另有每周上限；更高输出上限，高峰时段优先访问；Claude Code 共享额度" }
+      ],
+      "models": "Claude Opus 5 / Sonnet 5 / Haiku 4.5 全系（另有新一代 Fable 5）",
+      "clients": "官方 CLI（Claude Code）、Web/iOS/Android/桌面端；重度编程可在 Console 切换 API 按量计费",
+      "freeTier": "Free $0：网页/桌面/移动端聊天与代码生成，用量有限",
+      "sourceUrl": "https://claude.com/pricing",
+      "notes": "官方明确 Claude Code 包含于所有付费档（Free 档是否含 Claude Code 官方页未明示）；Max 仅月付；超额后付费档可购买 usage credits 按标准 API 价继续；Team 席位（$20/席年付，高级席 $100/席年付）也含 Claude Code",
+      "observedAt": "2026-07-26"
+    },
+    {
+      "vendor": "OpenAI",
+      "plan": "ChatGPT Plus/Pro/Business",
+      "category": "vendor",
+      "region": "intl",
+      "quotaModel": "5 小时窗口 + 周上限",
+      "tiers": [
+        { "name": "Plus", "monthly": 20, "currency": "USD", "annualNote": "", "quota": "含 Codex 扩展用量；按 5 小时滚动窗口 + 每周上限双重计量，官方未公布固定条数（第三方实测每 5 小时约 15–280 条消息，视模型而定）" },
+        { "name": "Pro 5x", "monthly": 100, "currency": "USD", "annualNote": "", "quota": "Codex 及整体用量约为 Plus 的 5 倍；最大 Codex 任务数；独享 GPT-5.6 Sol Pro" },
+        { "name": "Pro 20x", "monthly": 200, "currency": "USD", "annualNote": "", "quota": "Codex 及整体用量约为 Plus 的 20 倍；最大 Codex 任务数；独享 GPT-5.6 Sol Pro" },
+        { "name": "Business", "monthly": 25, "currency": "USD", "annualNote": "年付 $20/人/月，至少 2 席", "quota": "团队席位含 Codex；可额外购买 credits 扩展用量" }
+      ],
+      "models": "GPT-5.5 Instant、GPT-5.6 系列（Sol / Terra / Luna；Pro 档独享 Sol Pro）",
+      "clients": "Codex CLI（开源）、IDE 插件、Web、iOS、云端任务；本地任务可用 API key 按 token 标准价计费（绕过窗口/周上限）",
+      "freeTier": "Free $0 含有限 Codex 访问；另有 Go 档（$8/月）含有限 Codex，适合轻量编程任务",
+      "sourceUrl": "https://openai.com/chatgpt/pricing/",
+      "notes": "Codex 无独立订阅，随 ChatGPT 套餐计费；官网价格为动态渲染，未在抓取文本中直接显示，数字经多家 2026-07 近期来源交叉确认（Plus $20、Pro $100/$200、Business 月付 $25/年付 $20、Go $8）；Business 于 2026 年 4 月由 Team 更名；Codex 用量按 credits/token 计量（2026 年 4 月起与 token 对齐）",
+      "observedAt": "2026-07-26"
+    },
+    {
+      "vendor": "Google",
+      "plan": "Google AI Pro/Ultra",
+      "category": "vendor",
+      "region": "intl",
+      "quotaModel": "倍数配额 + Cloud credits",
+      "tiers": [
+        { "name": "AI Pro", "monthly": 19.99, "currency": "USD", "annualNote": "", "quota": "Gemini 应用用量为免费档 4 倍（按算力计量，非固定条数）；Antigravity / Jules / Android Studio 编程额度为扩展（Expanded）级；含 $10/月 Google Cloud credits" },
+        { "name": "AI Ultra 5x", "monthly": 99.99, "currency": "USD", "annualNote": "", "quota": "Gemini 用量为 Pro 的 5 倍；Antigravity 更高（Higher）额度；$40/月 Google Cloud credits；20TB 存储" },
+        { "name": "AI Ultra 20x", "monthly": 199.99, "currency": "USD", "annualNote": "", "quota": "Gemini 用量为 Pro 的 20 倍；Antigravity 最高额度；$100/月 Google Cloud credits；含 Gemini Spark、Project Genie；30TB 存储" }
+      ],
+      "models": "Gemini 3.1 Pro（1M 上下文）、Gemini 3.5 Flash 等；Ultra 含 Deep Think 推理模式",
+      "clients": "Antigravity（agent-first 开发平台）、Gemini CLI、Jules 编程 agent、Android Studio、AI Studio、Web/移动 App",
+      "freeTier": "Gemini 免费档 $0（3.5 Flash + 限量 3.1 Pro）；Gemini CLI 个人账号有免费每日额度",
+      "sourceUrl": "https://one.google.com/about/google-ai-plans/",
+      "notes": "2026-05-19 Google I/O 调价：Ultra 拆为 5x（$99.99）与 20x（$199.99，原 $249.99）两档；另有 AI Plus $4.99/月但无编程权益未收录；官网价格为动态渲染，数字经多家 2026-07 近期来源交叉确认（felloai、Solvimon、AI Pricing Guru 一致）；编程额度主要以 Antigravity/Jules 体现，原 Gemini Code Assist 个人权益已于 2026-06-18 停服迁移至 Antigravity",
+      "observedAt": "2026-07-26"
+    },
+    {
+      "vendor": "Google",
+      "plan": "Gemini Code Assist（团队版）",
+      "category": "vendor",
+      "region": "intl",
+      "quotaModel": "席位订阅",
+      "tiers": [
+        { "name": "Standard", "monthly": 22.8, "currency": "USD", "annualNote": "12 个月承诺 $19/用户/月", "quota": "IDE 内代码补全/生成/聊天 + agent mode + Gemini CLI，官方未公布固定条数上限" },
+        { "name": "Enterprise", "monthly": 54, "currency": "USD", "annualNote": "12 个月承诺 $45/用户/月", "quota": "Standard 全部权益 + 私有仓库代码定制、Gemini Cloud Assist，agent mode 与 Gemini CLI 更高每日用量上限" }
+      ],
+      "models": "Gemini 系列（Gemini for Google Cloud）",
+      "clients": "VS Code / JetBrains / Android Studio IDE 插件、Gemini CLI、Google Cloud 控制台",
+      "freeTier": "",
+      "sourceUrl": "https://cloud.google.com/products/gemini/pricing",
+      "notes": "官方按小时许可证费率计费（Standard $0.031232877/小时、Enterprise $0.073972603/小时，730 小时折算 $22.80/$54 月付；12 个月承诺折算 $19/$45），按月出账；个人免费版 2026-06-18 停服转向 Antigravity（官方 cloud 页仍留有 codeassist.google 个人版入口链接，状态存疑）",
+      "observedAt": "2026-07-26"
+    },
+    {
+      "vendor": "GitHub",
+      "plan": "GitHub Copilot",
+      "category": "tool",
+      "region": "intl",
+      "quotaModel": "AI Credits",
+      "tiers": [
+        { "name": "Pro", "monthly": 10, "currency": "USD", "annualNote": "年付约 $100/年（第三方报道，官网定价页未直接展示）", "quota": "每月 $15 AI Credits（$10 基础 + $5 flex 浮动额度，1 credit = $0.01）；代码补全无限且不计 credits" },
+        { "name": "Pro+", "monthly": 39, "currency": "USD", "annualNote": "", "quota": "每月 $70 AI Credits（$39 基础 + $31 flex），解锁高级模型与第三方编码 Agent（Claude/Codex，Preview）" },
+        { "name": "Max", "monthly": 100, "currency": "USD", "annualNote": "", "quota": "每月 $200 AI Credits（$100 基础 + $100 flex），个人最高额度，新模型/功能优先体验" },
+        { "name": "Business", "monthly": 19, "currency": "USD", "annualNote": "", "quota": "每月 AI Credits 池（约 $19/席，官方对比表未能抓取具体数值，来自二手报道），组织级席位与策略管理" },
+        { "name": "Enterprise", "monthly": 39, "currency": "USD", "annualNote": "", "quota": "更大月度 AI Credits 池（约 $39/席，官方对比表未能抓取具体数值，来自二手报道），企业级安全、IP 赔偿、代码库索引" }
+      ],
+      "models": "多模型目录：OpenAI、Anthropic Claude 等（Free/Student 仅自动选模型；Pro+ 起解锁高级模型）",
+      "clients": "IDE 插件（VS Code、Visual Studio、JetBrains、Xcode、Eclipse、Neovim）、Copilot CLI、github.com 网页与 GitHub Mobile、云 Agent",
+      "freeTier": "Free 档 $0：每月 2,000 次代码补全 + 50 次聊天请求（含 Edits），有限 Agent 用量，仅自动选模型；学生另有免费 Student 计划",
+      "sourceUrl": "https://github.com/features/copilot/plans",
+      "notes": "2026-06-01 起从 premium requests 切换为 AI Credits 计量（1 credit = $0.01）；Max 为 2026 年新增个人档；2026-04-22 起 GitHub Free/Team 组织的 Business 自助新注册暂停；Pro 年付价及 Business/Enterprise credits 数值来自二手报道，官网动态表格未能直接抓取",
+      "observedAt": "2026-07-26"
+    },
+    {
+      "vendor": "Cursor",
+      "plan": "Cursor",
+      "category": "tool",
+      "region": "intl",
+      "quotaModel": "美元用量池",
+      "tiers": [
+        { "name": "Pro", "monthly": 20, "currency": "USD", "annualNote": "年付 $16/月", "quota": "每月含 $20 第三方模型用量池（按模型 API 价扣减）+ 自研模型（Composer 2.5、Grok 4.5）充足用量；Tab 补全无限；超量可按相同 API 费率按需付费" },
+        { "name": "Pro+", "monthly": 60, "currency": "USD", "annualNote": "年付 $48/月", "quota": "每月含 $70 第三方模型用量池，其余同 Pro" },
+        { "name": "Ultra", "monthly": 200, "currency": "USD", "annualNote": "年付 $160/月", "quota": "每月含 $400 第三方模型用量池，其余同 Pro" },
+        { "name": "Teams Standard", "monthly": 40, "currency": "USD", "annualNote": "年付 $32/用户/月", "quota": "按席位计，含 Pro 全部功能 + 集中计费与管理、团队应用市场、Bugbot 代码审查、用量分析、SAML/OIDC SSO" },
+        { "name": "Teams Premium", "monthly": 120, "currency": "USD", "annualNote": "", "quota": "Agent 限额为 Teams Standard 的 5 倍，其余同 Standard" },
+        { "name": "Enterprise", "monthly": null, "currency": "USD", "annualNote": "", "quota": "定制报价：汇总用量、发票/采购订单结算、SCIM 席位管理、审计日志、访问控制" }
+      ],
+      "models": "OpenAI/Anthropic/Google 等前沿模型 + 自研 Composer 2.5 与 Grok 4.5（Auto 模式自动路由）",
+      "clients": "自有桌面 IDE（VS Code fork）、云端 Agent、Bugbot；支持 MCP、技能与钩子",
+      "freeTier": "Hobby 免费档：有限 Agent 请求、Composer 访问权限，无需信用卡；学生 .edu 邮箱可免费一年 Pro",
+      "sourceUrl": "https://cursor.com/pricing",
+      "notes": "官网定价页默认展示年付价（Pro $16/月、Teams $32/席/月），表内月付价与额度以官方文档为准；年付约为月付 8 折；团队/企业版第三方模型请求额外加收 $0.25/百万 token 的 Cursor Token 费率；官方声明仅 cursor.com 直销，第三方渠道购买有封号风险",
+      "observedAt": "2026-07-26"
+    },
+    {
+      "vendor": "Windsurf",
+      "plan": "Windsurf",
+      "category": "tool",
+      "region": "intl",
+      "quotaModel": "用量额度（数值未公布）",
+      "tiers": [
+        { "name": "Pro", "monthly": 20, "currency": "USD", "annualNote": "", "quota": "更高 Agent 用量额度（官网未公布具体数值）；全模型访问；免费使用 SWE 1.7 及开源模型；超量可按 API 价购买额外用量" },
+        { "name": "Max", "monthly": 200, "currency": "USD", "annualNote": "", "quota": "显著更高的用量额度（官网未公布具体数值），其余同 Pro" },
+        { "name": "Teams", "monthly": 40, "currency": "USD", "annualNote": "", "quota": "$80/月团队基础费 + $40/席/月（full dev seat）；无限成员、集中计费、管理面板与用量分析、优先支持" },
+        { "name": "Enterprise", "monthly": null, "currency": "USD", "annualNote": "", "quota": "定制报价：SAML/OIDC SSO、专属部署选项、专属客户管理、最高优先级支持" }
+      ],
+      "models": "OpenAI、Claude、Gemini 前沿模型 + 自研 SWE 1.7 及领先开源模型（Pro 起全模型可用）",
+      "clients": "Windsurf 桌面编辑器、Devin Cloud 云 Agent",
+      "freeTier": "Free 档 $0：轻量 Agent 编码额度、有限模型可用，无限 inline 编辑和 Tab 补全",
+      "sourceUrl": "https://windsurf.com/pricing",
+      "notes": "Windsurf 已并入 Cognition，官方定价页现为 Devin 品牌；原 flow action credits 已取消，改为用量制，官网未公布各档具体额度数值（二手报道 Pro 约 500 credits/月仅供参考）；Teams 档 $40 为每席位价，另收 $80/月团队基础费",
+      "observedAt": "2026-07-26"
+    },
+    {
+      "vendor": "智谱",
+      "plan": "GLM Coding Plan",
+      "category": "vendor",
+      "region": "cn",
+      "quotaModel": "prompts 次数（5 小时 + 每周）",
+      "tiers": [
+        { "name": "Lite", "monthly": 49, "currency": "CNY", "annualNote": "连续包季 9 折 ¥44.1/月；连续包年 8 折约 ¥39.2/月", "quota": "每 5 小时最多约 80 次 prompts，每周最多约 400 次 prompts（官方预估值）；联网搜索/网页读取/开源仓库 MCP 每月合计 100 次" },
+        { "name": "Pro", "monthly": 149, "currency": "CNY", "annualNote": "连续包季 9 折 ¥134.1/月；连续包年 8 折约 ¥119.2/月", "quota": "每 5 小时最多约 400 次 prompts，每周最多约 2000 次 prompts（5x Lite）；联网搜索等 MCP 每月合计 1000 次" },
+        { "name": "Max", "monthly": 469, "currency": "CNY", "annualNote": "连续包季 9 折 ¥422.1/月；连续包年 8 折约 ¥375.2/月", "quota": "每 5 小时最多约 1600 次 prompts，每周最多约 8000 次 prompts（20x Lite）；联网搜索等 MCP 每月合计 4000 次" }
+      ],
+      "models": "GLM-5.2、GLM-5-Turbo、GLM-4.7（官方文档口径；调用旧版 GLM-5.1/GLM-5 自动切换至 GLM-5.2）",
+      "clients": "无独立官方客户端，提供套餐专用 API 端点（兼容 Anthropic/OpenAI 协议），可接入 Claude Code、Cline、Kilo Code、Roo Code、OpenCode、OpenClaw、TRAE、CodeBuddy 等 20+ 编程工具；官方提供 npx @z_ai/coding-helper 一键配置",
+      "freeTier": "",
+      "sourceUrl": "https://www.bigmodel.cn/glm-coding",
+      "notes": "2026-02-12 官方价格调整函：取消首购优惠，保留季付 9 折/年付 8 折，整体涨幅 30% 起，存量订阅用户价格不变；当前个人套餐为限量供应（页面标注需抢购、需实名认证）。GLM-5.2/GLM-5-Turbo 按高峰期 3 倍、非高峰 2 倍消耗额度（高峰为每日 14:00–18:00 UTC+8），限时福利为非高峰仅 1 倍抵扣、持续至 2026 年 9 月底。额度为硬限制：耗尽后等下一个 5 小时周期恢复，不扣账户余额。仅限官方支持的编程工具内使用，不能作为通用 API。国际版（z.ai，美元计价）额度规则相同，价格为 Lite $18/月（官方文档确认）、Pro $72/月、Max $160/月（后两者来自 2026 年 7 月多个一致第三方来源，z.ai 订阅页为 JS 渲染未能直接核验）。官方称月额度按 API 定价折算约为订阅费的 15–30 倍。",
+      "observedAt": "2026-07-26"
+    },
+    {
+      "vendor": "Kimi",
+      "plan": "Kimi 会员（Kimi Code）",
+      "category": "vendor",
+      "region": "cn",
+      "quotaModel": "共享 token 池 + 5 小时频控",
+      "tiers": [
+        { "name": "Andante", "monthly": 49, "currency": "CNY", "annualNote": "官方称连续包年更优惠；第三方汇总约 ¥39/月（8 折），官方未列明细", "quota": "Kimi Code 1 倍额度；与会员共享月度 token 额度池，另有每 5 小时滚动频控 + 每 7 天刷新的周额度（官方未公布基准次数，全站口径约每 5 小时 300–1200 次请求、并发最高 30）" },
+        { "name": "Moderato", "monthly": 99, "currency": "CNY", "annualNote": "官方称连续包年更优惠；第三方汇总约 ¥79/月（8 折），官方未列明细", "quota": "Kimi Code 4 倍额度，可调用 k3 / k3-256k 模型；共享月度额度池 + 5 小时频控 + 周额度" },
+        { "name": "Allegretto", "monthly": 199, "currency": "CNY", "annualNote": "官方称连续包年更优惠；第三方汇总约 ¥159/月（8 折），官方未列明细", "quota": "Kimi Code 20 倍额度；解锁 k3 最高 100 万上下文及 kimi-for-coding-highspeed 高速版（消耗约为普通版 3 倍）" },
+        { "name": "Allegro", "monthly": 699, "currency": "CNY", "annualNote": "官方称年付最高立省 ¥1,680，未列该档具体折算价", "quota": "Kimi Code 60 倍额度；共享月度额度池 + 5 小时频控 + 周额度" }
+      ],
+      "models": "Kimi K2.7 Code（模型 ID kimi-for-coding，所有付费会员可用；高速版 Allegretto 及以上）与 Kimi K3（k3 / k3-256k，Moderato 及以上，Allegretto 及以上解锁 1M 上下文）",
+      "clients": "官方 Kimi Code CLI、VS Code 扩展（JetBrains/Zed 可经 ACP 接入）；API Key 同时兼容 OpenAI 与 Anthropic 协议（https://api.kimi.com/coding/v1），可接入 Claude Code、Roo Code、OpenCode 等第三方工具",
+      "freeTier": "有免费档 Adagio（¥0，日常聊天、会话内 K2.6 免费），但官方权益表未给免费档 Kimi Code 编程额度，编程权益需付费会员",
+      "sourceUrl": "https://www.kimi.com/zh-cn/help/membership/membership-pricing",
+      "notes": "① 编程权益（Kimi Code）绑定在通用会员内，与聊天/Agent 等共享同一月度 token 额度池，月额度耗尽会冻结 Kimi Code；② 2026-07-19 起因 K3 发布后算力逼近极限，官方暂停 C 端新用户订阅（恢复时间未定）；③ 官方预告新会员体系即将把 Kimi Code 权益拆分单独售卖，现有订阅不受影响，价格体系可能变动；④ 权益仅限个人开发，官方认可工具为 Kimi Code CLI / Claude Code / Roo Code，在其他工具使用 API Key 或篡改 User-Agent 可能被视为滥用；⑤ 额度用尽可购「加油包」按量兜底（人民币计价，价格近似开放平台 API）；⑥ 国际版体系不同：Moderato $19 / Allegretto $39 / Allegro $99 / Vivace $199 每月，Kimi Code 额度 1×/5×/15×/30×，年付折算 $15/$31/$79/$159 每月（来源 kimi.com/help/membership/membership-pricing）；⑦ 2025 年的独立「Kimi for Coding」套餐（¥49/99/199）已并入会员体系",
+      "observedAt": "2026-07-26"
+    },
+    {
+      "vendor": "MiniMax",
+      "plan": "Token Plan（原 Coding Plan）",
+      "category": "vendor",
+      "region": "cn",
+      "quotaModel": "token 额度池",
+      "tiers": [
+        { "name": "Plus", "monthly": 49, "currency": "CNY", "annualNote": "连续包年 ¥490/年（立省 2 个月，约 ¥40.8/月）", "quota": "每月约 6 亿+ token（M3 计），约合 12,000 次编程调用/月（按单次 ~50K token 估算）；支持 3-4 个 Agent 并发；额度按实际用量扣减，受 5 小时窗口 + 周窗口限制，不结转；不含视频生成" },
+        { "name": "Max", "monthly": 119, "currency": "CNY", "annualNote": "连续包年 ¥1,190/年（立省 2 个月，约 ¥99.2/月）", "quota": "每月约 18 亿+ token（M3 计），约合 36,000 次编程调用/月；支持 4-5 个 Agent 并发；5 小时窗口 + 周窗口；含视频生成 3 条/日" },
+        { "name": "Ultra", "monthly": 469, "currency": "CNY", "annualNote": "连续包年 ¥4,690/年（立省 2 个月，约 ¥390.8/月）", "quota": "每月约 71 亿+ token（M3 计），约合 140,000 次编程调用/月；支持 6-7 个 Agent 并发；5 小时窗口 + 周窗口；含视频生成 5 条/日" }
+      ],
+      "models": "MiniMax 全系模型共享同一额度：M3（1M 上下文、原生多模态）、M2.7 / M2.7-highspeed，以及图像、语音、音乐、视频生成模型",
+      "clients": "官方 Agent 应用 MiniMax Code（桌面端 + 网页版，免配 Key 开箱即用）；订阅 Key（sk-cp）API 兼容，可接入 Claude Code / OpenClaw / Cline 等任意 OpenAI 兼容工具；附 AI 编程专属 MCP 工具（联网搜索、图像理解）",
+      "freeTier": "无固定免费档；MiniMax Code 提供每日限量免费试用（官方未公布具体额度，每日领完即止）",
+      "sourceUrl": "https://platform.minimaxi.com/subscribe/token-plan",
+      "notes": "Token Plan 为原 Coding Plan 于 2026-03 升级而来，编程额度与多模态（图像/语音/音乐/视频）共享统一额度池，按实际 token 用量扣减。旧 Starter 档（国际 $10/月、国内约 ¥29/月）已停售新订，仅老用户可续。国际版（platform.minimax.io）为美元计价：Plus $20/月、Max $50/月、Ultra $120/月（官方英文文档确认），年付规则同为省 2 个月但具体美元年付金额未在官方页面抓到。额度受 5 小时窗口和周窗口限制，未用完不结转；超限后可用已购积分（Credits）补充、升级套餐或切回按量付费 API Key。高峰时段（工作日约 15:00-17:30）有动态限流。面向个人交互式使用，生产环境建议按量付费。另有团队版按席位购买（5 人以上）。",
+      "observedAt": "2026-07-26"
+    },
+    {
+      "vendor": "阿里",
+      "plan": "Qoder CN（原通义灵码）",
+      "category": "vendor",
+      "region": "cn",
+      "quotaModel": "Credits 积分",
+      "tiers": [
+        { "name": "个人专业版 Pro", "monthly": 59, "currency": "CNY", "annualNote": "", "quota": "每月 2,000 Credits（对话/智能体请求按量抵扣）+ 更多次代码补全；含 Quest 模式、Repo Wiki、专家团" },
+        { "name": "个人高级版 Pro+", "monthly": 169, "currency": "CNY", "annualNote": "", "quota": "每月 6,000 Credits，包含专业版全部功能" }
+      ],
+      "models": "默认 Qwen3-Coder 自动路由，可切换 DeepSeek-V4 系列、GLM-5.x、Kimi-K2.x、MiniMax、Qwen3.7-Max/Plus 等国内主流大模型",
+      "clients": "Qoder CN Desktop（AI IDE）、JetBrains 插件、VS Code 插件（已停止演进）、Qoder CLI CN（命令行）、QoderWork CN 桌面应用、Qoder CN Mobile",
+      "freeTier": "个人体验版（Free/社区版）免费：有限体验额度，含 2 周 Pro 试用及 300 Credits、有限次数代码补全；仅限阿里云主账号使用",
+      "sourceUrl": "https://help.aliyun.com/zh/lingma/product-overview/billing-description",
+      "notes": "① 通义灵码 2026-05-20 更名 Qoder CN，启用 Credits 计费；个人专业版限免同日日结束。② 企业档明码标价但须阿里云主账号采购（控制台下单），故未收入 tiers：团队版 Teams 99 元/席位·月（3,000 Credits/席位·月，1 席位起）；企业标准版 149 元/席位·月（10 席位起）；企业专属版 VPC 199 元/席位·月（50 席位起，独立实例+VPC 部署）。③ 企业版 2026-05 涨价：标准版 79→99、专属版 159→199 元/席位·月；存量订阅合同期内按原价。④ Credits 耗尽可购资源包：个人 40 元/1,000 Credits（1 个月有效）、企业 80 元/2,000 Credits（3 个月有效）。⑤ 官方定价页 lingma.aliyun.com/pricing（跳转 qoder.com.cn/pricing）为 JS 渲染无法直接抓取，数字以阿里云帮助中心计费说明页为准。⑥ 退款：订阅 24 小时内且未消耗 Credits 可退，资源包不退；不支持 5 天无理由退款。",
+      "observedAt": "2026-07-26"
+    },
+    {
+      "vendor": "字节",
+      "plan": "Trae 国际版",
+      "category": "tool",
+      "region": "intl",
+      "quotaModel": "美元 token 额度",
+      "tiers": [
+        { "name": "Lite", "monthly": 3, "currency": "USD", "annualNote": "年付 $27（约 $2.25/月）；单月购买 $4.5", "quota": "每月 $5 基础额度 + 奖励额度（按 token 折算美元扣费），补全不限次，2 个云端任务并行" },
+        { "name": "Pro", "monthly": 10, "currency": "USD", "annualNote": "年付 $90（约 $7.5/月）；单月购买 $15", "quota": "每月 $20 基础额度 + 奖励额度（按 token 折算美元扣费），含 SOLO 模式，10 个云端任务并行" },
+        { "name": "Pro+", "monthly": 30, "currency": "USD", "annualNote": "年付 $270（约 $22.5/月）；单月购买 $45", "quota": "每月 $90 基础额度 + 奖励额度（约为 Pro 的 3.5 倍用量），15 个云端任务并行" },
+        { "name": "Ultra", "monthly": 100, "currency": "USD", "annualNote": "年付 $900（约 $75/月）；单月购买 $150", "quota": "每月 $400 基础额度 + 奖励额度（约为 Pro 的 20 倍用量），新模型抢先体验，20 个云端任务并行" }
+      ],
+      "models": "Claude、GPT、Gemini 等海外模型可选，按 token 以美元额度计费（Ultra 可抢先体验新模型）",
+      "clients": "官方 IDE（VS Code 内核，macOS/Windows）、TRAE Work 网页版/桌面版",
+      "freeTier": "Free 版：每月 $3 基础额度、5000 次代码补全/月、标准队列；新用户注册 48 小时内可领 7 天 Pro 试用（含 $5 额度，需信用卡）",
+      "sourceUrl": "https://docs.trae.ai/ide/new-plans-and-billing",
+      "notes": "2026 年 2 月起由按请求次数改为按 token（美元额度）计费，基础/奖励额度当月不清零结转不可用，超额可开 On-Demand 按量付费（每累计 $3 扣一次）；不对中国大陆提供服务；美国用户需另付税",
+      "observedAt": "2026-07-26"
+    },
+    {
+      "vendor": "字节",
+      "plan": "Trae 国内版（速通权益）",
+      "category": "tool",
+      "region": "cn",
+      "quotaModel": "速通次数（免排队）",
+      "tiers": [
+        { "name": "速通 Pro", "monthly": 99, "currency": "CNY", "annualNote": "首月优惠 ¥59", "quota": "100 次速通/月（排队时跳队，按 Query 计次，31 天周期清零），标准模型体验，10 个云端任务并行" },
+        { "name": "速通 Pro+", "monthly": 239, "currency": "CNY", "annualNote": "", "quota": "300 次速通/月，标准模型体验，10 个云端任务并行" },
+        { "name": "速通 Ultra", "monthly": 699, "currency": "CNY", "annualNote": "", "quota": "1000 次速通/月，优先体验 SOTA 模型，20 个云端任务并行" },
+        { "name": "优速通 Express", "monthly": 1999, "currency": "CNY", "annualNote": "", "quota": "速通次数不限（限量发售），优先体验 SOTA 模型，20 个云端任务并行" }
+      ],
+      "models": "豆包、DeepSeek、Kimi 等国产模型（Ultra/Express 档优先体验 SOTA 模型）",
+      "clients": "TRAE IDE、TRAE Work 桌面版/网页版/移动版（权益账号内共享）",
+      "freeTier": "免费版保留：标准模型体验、2 个云端任务并行，高峰时段需排队（0 速通次数）",
+      "sourceUrl": "https://docs.trae.cn/ide_fast-pass-overview",
+      "notes": "国内版基础功能免费，「速通」是免排队增值权益而非用量订阅：付费档只提供速通次数与并行/SOTA 权益，按 31 天周期发放、未用完清零，购买后不支持退款；支持微信/支付宝/抖音支付",
+      "observedAt": "2026-07-26"
+    },
+    {
+      "vendor": "百度",
+      "plan": "文心快码 Comate",
+      "category": "tool",
+      "region": "cn",
+      "quotaModel": "请求券（按 token 扣减）",
+      "tiers": [
+        { "name": "个人专业版", "monthly": 100, "currency": "CNY", "annualNote": "季付 ¥270、年付 ¥1000；官网活动：连续包月 ¥60/月、包年 5 折 ¥500/年、首购 1 元", "quota": "智能补全免费 + 含智能体请求券 ¥55/月（按 token 消耗 × 模型单价扣减），额度用尽后自动转免费 Auto-Free 模式（150k tokens/h）" },
+        { "name": "个人旗舰版", "monthly": 299, "currency": "CNY", "annualNote": "季付 ¥889、年付 ¥3499", "quota": "含智能体请求券 ¥199/月，Auto-Free 模式 500k tokens/h" },
+        { "name": "企业专业版", "monthly": 150, "currency": "CNY", "annualNote": "¥1500/人/年（季付 ¥450/人）", "quota": "每人 ¥72/月智能体请求券，Auto-Free 模式不限频，1 人起购；另有企业旗舰版 ¥358/人/月、企业专属版（私有化）¥2500/人/年、100 人起购" }
+      ],
+      "models": "文心大模型为主，智能体（Zulu）按 token 从请求券扣费，额度用尽后可切免费 Auto-Free 模式",
+      "clients": "IDE 插件（VS Code/JetBrains 等）、Comate AI IDE 独立编辑器",
+      "freeTier": "个人标准版免费：智能补全 + 高级功能限免，首次注册赠 ¥10 智能体请求券",
+      "sourceUrl": "https://cloud.baidu.com/doc/COMATE/s/rlnvnio4a",
+      "notes": "价格为百度智能云官方文档（2026-07-15 更新）刊例价，comate.baidu.com 官网常年有折扣活动（如连续包月 ¥60、包年 5 折），实际支付以官网为准；请求券按订阅周期刷新、不可预支，可另购独立智能体请求包（¥18/33/150，永久有效）",
+      "observedAt": "2026-07-26"
+    },
+    {
+      "vendor": "腾讯",
+      "plan": "CodeBuddy",
+      "category": "tool",
+      "region": "cn",
+      "quotaModel": "积分",
+      "tiers": [
+        { "name": "标准版", "monthly": 99, "currency": "CNY", "annualNote": "连续包月 7 折 ¥70/月；年付 7 折 ¥840/年；连续包年再 8 折 ¥672/年", "quota": "每月 2000 基础积分 + 赠 2000 积分，代码补全无限次，15 个自动任务（限免 99 个）" },
+        { "name": "高级版", "monthly": 199, "currency": "CNY", "annualNote": "", "quota": "每月 4000 基础积分 + 赠 5000 积分，代码补全无限次，30 个自动任务（限免 99 个）" },
+        { "name": "旗舰版", "monthly": 999, "currency": "CNY", "annualNote": "", "quota": "每月 20000 基础积分 + 赠 30000 积分，99 个自动任务，功能抢先体验优先" }
+      ],
+      "models": "多模型 Auto 调度（体验版限免全模型），付费档全部模型可选",
+      "clients": "官方 IDE、IDE 插件、CLI、WorkBuddy（企业协作）",
+      "freeTier": "体验版限时免费：每月 500 积分、5000 次代码实时补全（限免无限次）、3 个自动任务（限免 99 个）",
+      "sourceUrl": "https://www.codebuddy.cn/pricing/",
+      "notes": "国内版另有企业版（WorkBuddy）¥198/人/月起（含 2000 积分/人/月，团队共享）。国际版 codebuddy.ai 单独以美元计价：Pro $9.95/月（原价 $19.90，年付 $119.40，1000 积分/月）、团队版 $40/坐席/月，新用户赠 250 积分（14 天有效）",
+      "observedAt": "2026-07-26"
+    }
+  ]
+}
