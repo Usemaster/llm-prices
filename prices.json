@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-25T14:15:57.560Z",
+  "updatedAt": "2026-07-26T00:31:28.078Z",
   "fx": {
     "USD_CNY": 6.781903,
     "source": "open.er-api.com"
@@ -2316,14 +2316,14 @@
       "model": "gpt-oss-20b",
       "modelId": "gpt-oss-20b",
       "input": 0.03,
-      "output": 0.13,
+      "output": 0.14,
       "currency": "USD",
       "context": 131072,
       "source": "openrouter",
       "sourceUrl": "https://openai.com/api/pricing/",
       "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
       "inputUSD": 0.03,
-      "outputUSD": 0.13
+      "outputUSD": 0.14
     },
     {
       "vendor": "OpenAI",
