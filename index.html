@@ -174,16 +174,16 @@ const VENDOR_META = {
   "智谱":      { logo: "assets/logos/zhipu.png",     color: "#3858E9" },
   "阿里百炼":  { logo: "assets/logos/alibabacloud.svg", color: "#FF6A00" },
   "Kimi":      { logo: "assets/logos/kimi.ico",      color: "#52525B", invert: true },
-  "豆包":      { logo: "assets/logos/doubao.ico",    color: "#F53F3F" },
-  "腾讯混元":  { logo: "assets/logos/hunyuan.ico",   color: "#0052D9" },
+  "豆包":      { logo: "assets/logos/doubao.png",    color: "#F53F3F" },
+  "腾讯混元":  { logo: "assets/logos/hunyuan.svg",   color: "#0052D9" },
   "MiniMax":   { logo: "assets/logos/minimax.ico",   color: "#2448F3" },
   "GitHub":    { logo: "assets/logos/github.svg",    color: "#8250DF", invert: true },
   "Cursor":    { logo: "assets/logos/cursor.ico",    color: "#52525B", invert: true },
   "Windsurf":  { logo: "assets/logos/windsurf.ico",  color: "#0EA5E9" },
-  "字节":      { logo: "assets/logos/trae.svg",      color: "#325AB4" },
+  "字节":      { logo: "assets/logos/trae.png",      color: "#325AB4" },
   "阿里":      { logo: "assets/logos/qoder.png",     color: "#FF6A00" },
   "百度":      { logo: "assets/logos/baidu.ico",     color: "#2932E1" },
-  "腾讯":      { logo: "assets/logos/codebuddy.png", color: "#0052D9" },
+  "腾讯":      { logo: "assets/logos/codebuddy.jpg", color: "#0052D9" },
   "JetBrains": { logo: "assets/logos/jetbrains.ico", color: "#FE2857" },
   "Amazon":    { logo: "assets/logos/kiro.ico",      color: "#FF9900" },
   "Tabnine":   { logo: "assets/logos/tabnine.ico",   color: "#7C3AED" },
@@ -194,7 +194,7 @@ const VENDOR_META = {
   "Replit":    { logo: "assets/logos/replit.png",    color: "#F26207" },
   "Zed":       { logo: "assets/logos/zed.png",       color: "#084CCF" },
   "Factory":   { logo: "assets/logos/factory.ico",   color: "#CA8A04" },
-  "商汤":      { logo: "assets/logos/sensetime.ico", color: "#0284C7" },
+  "商汤":      { logo: "assets/logos/sensetime.svg", color: "#0284C7" },
   "讯飞":      { logo: "assets/logos/xfyun.ico",     color: "#E11D48" },
   "京东":      { logo: "assets/logos/jd.ico",        color: "#E1251B" },
   "华为":      { logo: "assets/logos/huawei.ico",    color: "#C7000B" },
@@ -224,6 +224,7 @@ const state = {
 
 const $ = (s) => document.querySelector(s);
 const fmtNum = (v) => v == null ? "—" : v >= 100 ? v.toFixed(0) : v >= 10 ? v.toFixed(1) : v >= 1 ? v.toFixed(2) : v.toFixed(3);
+const fmtP = (v) => { const s = fmtNum(v); return s.endsWith(".0") ? s.slice(0, -2) : s; };
 const fmtCtx = (c) => c == null ? "—" : c >= 1e6 ? (Math.round(c / 1e4) / 100) + "M" : Math.round(c / 1e3) + "k";
 
 function price(usd) {
@@ -318,8 +319,17 @@ function visiblePlans() {
 
 function planDetailRow(p) {
   const tierHtml = p.tiers.map((t) => {
-    const orig = t.monthly == null ? "定制报价" : `${t.currency === "USD" ? "$" : "¥"}${fmtNum(t.monthly)}/月`;
-    return `<div class="tier"><span class="tname">${t.name}</span><span class="tprice">${orig}${t.annualNote ? `<span class="tannual">${t.annualNote}</span>` : ""}</span><span class="tquota">${t.quota}</span></div>`;
+    let priceHtml;
+    if (t.monthlyUSD == null) {
+      priceHtml = "定制报价";
+    } else {
+      priceHtml = `${sym()}${fmtP(price(t.monthlyUSD))}/月`;
+      // 原始标价币种与当前显示币种不同时,附原始标价(与主表「原始标价」口径一致)
+      if (t.currency !== state.currency) {
+        priceHtml += `<span class="tannual">原价 ${t.currency === "USD" ? "$" : "¥"}${fmtNum(t.monthly)}</span>`;
+      }
+    }
+    return `<div class="tier"><span class="tname">${t.name}</span><span class="tprice">${priceHtml}${t.annualNote ? `<span class="tannual">${t.annualNote}</span>` : ""}</span><span class="tquota">${t.quota}</span></div>`;
   }).join("");
   const rows = [
     ["可用模型", p.models],
@@ -355,7 +365,6 @@ function renderPlans() {
     const badge = p.region === "cn" ? '<span class="badge cn">国内</span>' : '<span class="badge intl">国外</span>';
     const cat = p.category === "vendor" ? '<span class="badge cat-vendor">自营</span>' : '<span class="badge cat-tool">工具</span>';
     const lo = price(p.entryUSD), hi = price(p.maxUSD);
-    const fmtP = (v) => { const s = fmtNum(v); return s.endsWith(".0") ? s.slice(0, -2) : s; };
     const range = lo == null ? "—" : lo === hi ? fmtP(lo) : `${fmtP(lo)}–${fmtP(hi)}`;
     html.push(`<tr class="row${state.openRow === key ? " open" : ""}" data-key="${key}" style="--vc:${vm.color}">
       <td class="vendor"><span class="vcell">${vlogoHtml(p.vendor)}${p.vendor}${badge}</span></td>
