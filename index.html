@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LLM API 价格对比 — 国内外主流大模型</title>
+<title>LLM 价格对比 — API 与 Coding Plan 套餐</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='3' y='12' width='4' height='9' rx='1' fill='%230F62FE'/%3E%3Crect x='10' y='7' width='4' height='14' rx='1' fill='%23D97757'/%3E%3Crect x='17' y='3' width='4' height='18' rx='1' fill='%235786FE'/%3E%3C/svg%3E">
-<meta name="description" content="国内外主流大模型 API 价格对比:OpenAI、Anthropic、Google、xAI、Mistral、DeepSeek、阿里、智谱、Kimi、豆包、混元、MiniMax,支持成本估算与币种切换。">
+<meta name="description" content="国内外主流大模型 API 价格与 Coding Plan 编程订阅套餐对比:OpenAI、Anthropic、Google、DeepSeek、阿里、智谱、Kimi、豆包,以及 Claude、Copilot、Cursor、GLM Coding Plan 等 29 个订阅套餐,支持成本估算与币种切换。">
 <style>
   :root {
     --bg: #f5f6f8; --panel: #ffffff; --border: #e4e7ec; --border-soft: #eef0f3;
@@ -110,7 +110,7 @@
 <body>
 <div class="wrap">
   <header class="top">
-    <h1>LLM API 价格对比</h1>
+    <h1>LLM 价格对比</h1>
     <span class="meta" id="meta">加载中…</span>
   </header>
 
@@ -155,7 +155,7 @@
   </div>
 
   <footer>
-    <p>价格单位:每 100 万 token。国际厂商数据来自 LiteLLM / OpenRouter 公开价格库,国内厂商数据为人工整理自官方定价页,每行附来源链接。价格可能滞后或存在阶梯价、缓存价、限时优惠等情况,<b>实际计费请以各厂商官网为准</b>。Logo 版权归各厂商所有,仅作识别用途。</p>
+    <p>API 价格单位为每 100 万 token;Coding Plan 套餐为订阅月价(档位详情见行展开)。国际厂商数据来自 LiteLLM / OpenRouter 公开价格库,国内厂商与套餐数据为人工整理自官方定价页,每行附来源链接。价格可能滞后或存在阶梯价、缓存价、限时优惠等情况,<b>实际计费请以各厂商官网为准</b>。Logo 版权归各厂商所有,仅作识别用途。</p>
     <p>数据来源:<a href="https://github.com/BerriAI/litellm" target="_blank" rel="noopener">LiteLLM</a> · <a href="https://openrouter.ai" target="_blank" rel="noopener">OpenRouter</a> · 各厂商官方定价页</p>
   </footer>
 </div>
@@ -177,13 +177,27 @@ const VENDOR_META = {
   "豆包":      { logo: "assets/logos/doubao.ico",    color: "#F53F3F" },
   "腾讯混元":  { logo: "assets/logos/hunyuan.ico",   color: "#0052D9" },
   "MiniMax":   { logo: "assets/logos/minimax.ico",   color: "#2448F3" },
-  "GitHub":    { logo: null, color: "#8250DF" },
-  "Cursor":    { logo: null, color: "#52525B" },
-  "Windsurf":  { logo: null, color: "#0EA5E9" },
-  "字节":      { logo: "assets/logos/doubao.ico",    color: "#325AB4" },
-  "阿里":      { logo: "assets/logos/alibabacloud.svg", color: "#FF6A00" },
-  "百度":      { logo: null, color: "#2932E1" },
-  "腾讯":      { logo: "assets/logos/hunyuan.ico",   color: "#0052D9" },
+  "GitHub":    { logo: "assets/logos/github.svg",    color: "#8250DF", invert: true },
+  "Cursor":    { logo: "assets/logos/cursor.ico",    color: "#52525B", invert: true },
+  "Windsurf":  { logo: "assets/logos/windsurf.ico",  color: "#0EA5E9" },
+  "字节":      { logo: "assets/logos/trae.svg",      color: "#325AB4" },
+  "阿里":      { logo: "assets/logos/qoder.png",     color: "#FF6A00" },
+  "百度":      { logo: "assets/logos/baidu.ico",     color: "#2932E1" },
+  "腾讯":      { logo: "assets/logos/codebuddy.png", color: "#0052D9" },
+  "JetBrains": { logo: "assets/logos/jetbrains.ico", color: "#FE2857" },
+  "Amazon":    { logo: "assets/logos/kiro.ico",      color: "#FF9900" },
+  "Tabnine":   { logo: "assets/logos/tabnine.ico",   color: "#7C3AED" },
+  "Augment":   { logo: "assets/logos/augment.ico",   color: "#DC2626" },
+  "Sourcegraph": { logo: "assets/logos/amp.ico",     color: "#FF5543" },
+  "Cognition": { logo: "assets/logos/devin.ico",     color: "#52525B" },
+  "Warp":      { logo: "assets/logos/warp.png",      color: "#01A4FF" },
+  "Replit":    { logo: "assets/logos/replit.png",    color: "#F26207" },
+  "Zed":       { logo: "assets/logos/zed.png",       color: "#084CCF" },
+  "Factory":   { logo: "assets/logos/factory.ico",   color: "#CA8A04" },
+  "商汤":      { logo: "assets/logos/sensetime.ico", color: "#0284C7" },
+  "讯飞":      { logo: "assets/logos/xfyun.ico",     color: "#E11D48" },
+  "京东":      { logo: "assets/logos/jd.ico",        color: "#E1251B" },
+  "华为":      { logo: "assets/logos/huawei.ico",    color: "#C7000B" },
 };
 const FALLBACK_COLORS = ["#0F62FE","#9333EA","#DB2777","#EA580C","#059669","#0284C7"];
 let fallbackIdx = 0;
@@ -341,7 +355,8 @@ function renderPlans() {
     const badge = p.region === "cn" ? '<span class="badge cn">国内</span>' : '<span class="badge intl">国外</span>';
     const cat = p.category === "vendor" ? '<span class="badge cat-vendor">自营</span>' : '<span class="badge cat-tool">工具</span>';
     const lo = price(p.entryUSD), hi = price(p.maxUSD);
-    const range = lo == null ? "—" : lo === hi ? fmtNum(lo) : `${fmtNum(lo)}–${fmtNum(hi)}`;
+    const fmtP = (v) => { const s = fmtNum(v); return s.endsWith(".0") ? s.slice(0, -2) : s; };
+    const range = lo == null ? "—" : lo === hi ? fmtP(lo) : `${fmtP(lo)}–${fmtP(hi)}`;
     html.push(`<tr class="row${state.openRow === key ? " open" : ""}" data-key="${key}" style="--vc:${vm.color}">
       <td class="vendor"><span class="vcell">${vlogoHtml(p.vendor)}${p.vendor}${badge}</span></td>
       <td>${p.plan}</td>

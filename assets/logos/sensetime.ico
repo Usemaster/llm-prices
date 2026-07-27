@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="https://sta-volc.xiaohuanxiong.com/raccoon-family/prod/favicon.svg" />
+        <meta
+            http-equiv="cache-control"
+            content="no-cache, no-store, must-revalidate"
+        />
+        <meta http-equiv="pragma" content="no-cache" />
+        <meta http-equiv="expires" content="0" />
+        <meta name="baidu-site-verification" content="codeva-cM2deuHRkp" />
+        <meta
+            name="viewport"
+            content="initial-scale=1,width=device-width,maximum-scale=1,minimum-scale=1,user-scalable=no"
+        />
+        <meta
+            name="keywords"
+            content="小浣熊家族,代码小浣熊,办公小浣熊,Raccoon,Code Raccoon,Office Raccoon,AI数据分析,AI办公助手,AI编程辅助工具,AI写代码,AI代码生成,AI代码翻译,AI重构代码,代码生成模型,AI编程助手,代码解释器,智能分析,智能决策,商业智能,BI分析,AI Programming Tool,Code Generation,Code Completion,AI Coding Assistant,Code interpreter,BI Analysis,Data Analysis "
+        />
+        <meta
+            name="description"
+            content="Raccoon - Another Comprehensive CO-pilOt Navigator ｜ Raccoon是基于商汤自研大语言模型的智能助手，包含代码助手、办公助手，满足用户代码编写、数据分析、编程学习等各类需求。"
+        />
+        <title>小浣熊家族 Raccoon - AI 智能助手 - 商汤科技</title>
+        <script>
+            var _hmt = _hmt || []
+            ;(function () {
+                var hm = document.createElement("script")
+                hm.src =
+                    "https://hm.baidu.com/hm.js?37e36e5e93d69109590054bb0271b914"
+                var s = document.getElementsByTagName("script")[0]
+                s.parentNode.insertBefore(hm, s)
+            })()
+        </script>
+      <script type="module" crossorigin src="https://sta-volc.xiaohuanxiong.com/raccoon-family/prod/assets/index-BwZGiXJa.js"></script>
+      <link rel="modulepreload" crossorigin href="https://sta-volc.xiaohuanxiong.com/raccoon-family/prod/assets/vendor-dayjs-CfhOTdFl.js">
+      <link rel="modulepreload" crossorigin href="https://sta-volc.xiaohuanxiong.com/raccoon-family/prod/assets/vendor--JgMHovF.js">
+      <link rel="modulepreload" crossorigin href="https://sta-volc.xiaohuanxiong.com/raccoon-family/prod/assets/vendor-notistack-F45Ph24l.js">
+      <link rel="modulepreload" crossorigin href="https://sta-volc.xiaohuanxiong.com/raccoon-family/prod/assets/vendor-syntax-highlighter-CyJia-0A.js">
+      <link rel="modulepreload" crossorigin href="https://sta-volc.xiaohuanxiong.com/raccoon-family/prod/assets/ventor-antd-CE3bsgYZ.js">
+      <link rel="modulepreload" crossorigin href="https://sta-volc.xiaohuanxiong.com/raccoon-family/prod/assets/vendor-echarts-B0inoQK_.js">
+      <link rel="stylesheet" crossorigin href="https://sta-volc.xiaohuanxiong.com/raccoon-family/prod/assets/index-DXEoNevu.css">
+    </head>
+
+    <body
+        style="
+            width: 100vw;
+            height: 100vh;
+            background-color: rgb(20 30 50) !important;
+        "
+    >
+        <div id="root"></div>
+        <!-- 阿里云验证码 -->
+        <script src="https://o.alicdn.com/captcha-frontend/aliyunCaptcha/AliyunCaptcha.js"></script>
+    </body>
+</html>
