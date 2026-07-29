@@ -110,7 +110,7 @@ function fromOpenRouter(raw, covered) {
     const vendor = INTL_VENDORS[provider];
     const modelId = rest.join("/");
     if (!modelId || isNoise(modelId)) continue;
-    if (modelId.endsWith(":free") || modelId.includes(":extended")) continue;
+    if (modelId.includes(":")) continue; // :free / :extended / :batch 等计费模式变体, 不是独立模型
     const inCost = parseFloat(m.pricing?.prompt);
     const outCost = parseFloat(m.pricing?.completion);
     if (!(inCost > 0) || !(outCost > 0)) continue;

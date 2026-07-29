@@ -43,6 +43,8 @@
   .seg { display: inline-flex; border: 1px solid var(--border); border-radius: 7px; overflow: hidden; }
   .seg button { border: 0; border-radius: 0; background: transparent; padding: 6px 12px; cursor: pointer; color: var(--muted); }
   .seg button.on { background: var(--accent); color: #fff; }
+  .oldver { display: inline-flex; align-items: center; gap: 5px; font-size: 12.5px; color: var(--muted); cursor: pointer; user-select: none; white-space: nowrap; }
+  .oldver input { accent-color: var(--accent); cursor: pointer; }
 
   /* 厂商 chips: 过滤器 + 图例 */
   .vendors { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 12px; margin-bottom: 10px; }
@@ -86,6 +88,12 @@
   td.detail a { color: var(--accent); }
   .cost { color: var(--good); font-weight: 600; }
   .empty { text-align: center; color: var(--muted); padding: 40px 0; }
+
+  /* 厂商分组头 */
+  tr.group td { padding: 9px 10px 7px; background: color-mix(in srgb, var(--vc) 8%, transparent); border-bottom: 1px solid var(--border); border-top: 1px solid var(--border); }
+  tr.group:first-child td { border-top: 0; }
+  tr.group .gcell { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; }
+  tr.group .gmeta { margin-left: auto; font-family: var(--mono); font-size: 12px; color: var(--muted); font-weight: 400; }
 
   /* Tab 切换 */
   .tabs { display: inline-flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin: 14px 0 12px; }
@@ -133,6 +141,9 @@
       <button data-v="vendor">厂商自营</button>
       <button data-v="tool">第三方工具</button>
     </div>
+    <label class="oldver" id="oldverWrap" title="默认每个系列只显示最新模型,勾选后显示全部历史版本">
+      <input type="checkbox" id="oldver"> 显示旧版本 <span id="oldCnt"></span>
+    </label>
     <div class="seg" id="curSeg">
       <button data-v="USD">USD $</button>
       <button data-v="CNY" class="on">CNY ¥</button>
@@ -217,15 +228,17 @@ function vlogoHtml(name, size) {
 
 const state = {
   data: null, currency: "CNY", region: "all", vendor: "", q: "",
-  tab: "api", category: "all",
+  tab: "api", category: "all", latestOnly: true,
   sortKey: "inputUSD", sortDir: 1, openRow: null,
   calcIn: 0, calcOut: 0,
+  latestKeys: new Set(),
 };
 
 const $ = (s) => document.querySelector(s);
 const fmtNum = (v) => v == null ? "—" : v >= 100 ? v.toFixed(0) : v >= 10 ? v.toFixed(1) : v >= 1 ? v.toFixed(2) : v.toFixed(3);
 const fmtP = (v) => { const s = fmtNum(v); return s.endsWith(".0") ? s.slice(0, -2) : s; };
 const fmtCtx = (c) => c == null ? "—" : c >= 1e6 ? (Math.round(c / 1e4) / 100) + "M" : Math.round(c / 1e3) + "k";
+const keyOf = (m) => m.vendor + "|" + m.modelId;
 
 function price(usd) {
   if (usd == null) return null;
@@ -233,9 +246,59 @@ function price(usd) {
 }
 const sym = () => state.currency === "USD" ? "$" : "¥";
 
+// ---- 同系列归并: 族名 = 去掉版本号/阶段词后的型号名; 版本 = 提取的数字串 ----
+// 尺寸 token(12b/235b/a3b/e4b)保留在族名里, 版本 token(5.2/qwen3.7/k2.7/2506/001)剔除
+function familyOf(modelId) {
+  const kept = [];
+  for (const t of modelId.toLowerCase().split("-")) {
+    if (!t) continue;
+    if (/^\d+(\.\d+)*$/.test(t)) continue;       // 纯版本号: 5.2 / 4 / 2506 / 001
+    const vp = t.match(/^([a-z]+)\d+(\.\d+)*$/); // 字母+版本号: 保留品牌前缀 qwen3.7→qwen, k2.7→k
+    if (vp) { kept.push(vp[1]); continue; }
+    if (["preview", "beta", "exp", "latest", "alpha"].includes(t)) continue;
+    kept.push(t);
+  }
+  return kept.join("-");
+}
+function versionOf(modelId) {
+  const nums = [];
+  for (const t of modelId.toLowerCase().split("-")) {
+    if (/^\d+(\.\d+)*$/.test(t)) nums.push(...t.split(".").map(Number));
+    else if (/^[a-z]+\d+(\.\d+)*$/.test(t)) nums.push(...t.match(/\d+(\.\d+)*/)[0].split(".").map(Number));
+  }
+  return nums;
+}
+function cmpVersion(a, b) {
+  for (let i = 0; i < Math.max(a.length, b.length); i++) {
+    const d = (a[i] ?? -1) - (b[i] ?? -1);
+    if (d !== 0) return d;
+  }
+  return 0;
+}
+// 每个 (厂商, 族) 只保留最新款; 版本相同优先人工整理 > LiteLLM > OpenRouter
+// 个别改名/实验型号手动归族
+const FAMILY_ALIAS = new Map([
+  ["豆包|doubao-seed", "豆包|doubao-seed-lite"],   // seed-1.8 已被 seed-2.0-lite 替代
+  ["Google|gemini", "Google|gemini-pro"],          // gemini-exp-1206 即 2.0-pro 实验版
+]);
+function computeLatest(models) {
+  const SRC = { manual: 3, litellm: 2, openrouter: 1 };
+  const best = new Map();
+  for (const m of models) {
+    let fam = m.vendor + "|" + familyOf(m.modelId);
+    fam = FAMILY_ALIAS.get(fam) ?? fam;
+    const cur = best.get(fam);
+    if (!cur) { best.set(fam, m); continue; }
+    const dv = cmpVersion(versionOf(m.modelId), versionOf(cur.modelId));
+    if (dv > 0 || (dv === 0 && (SRC[m.source] ?? 0) > (SRC[cur.source] ?? 0))) best.set(fam, m);
+  }
+  return new Set([...best.values()].map(keyOf));
+}
+
 function visibleModels() {
   const q = state.q.trim().toLowerCase();
   let list = state.data.models.filter((m) => {
+    if (state.latestOnly && !state.latestKeys.has(keyOf(m))) return false;
     if (state.region !== "all" && m.region !== state.region) return false;
     if (state.vendor && m.vendor !== state.vendor) return false;
     if (q && !(m.model.toLowerCase().includes(q) || m.vendor.toLowerCase().includes(q) || m.modelId.toLowerCase().includes(q))) return false;
@@ -280,7 +343,8 @@ function renderHead(costOn) {
 }
 
 function currentList() {
-  return state.tab === "api" ? state.data.models : (state.data.plans ?? []);
+  if (state.tab === "plans") return state.data.plans ?? [];
+  return state.latestOnly ? state.data.models.filter((m) => state.latestKeys.has(keyOf(m))) : state.data.models;
 }
 
 function renderVendorBar() {
@@ -383,33 +447,61 @@ function renderPlans() {
   }));
 }
 
-function render() {
-  if (state.tab === "plans") return renderPlans();
+// API 表: 按厂商聚合分组渲染
+function renderApi() {
   const costOn = state.calcIn > 0 || state.calcOut > 0;
   renderHead(costOn);
   const list = visibleModels();
   $("#empty").hidden = list.length > 0;
-  const html = [];
-  list.forEach((m) => {
-    const key = m.vendor + "|" + m.modelId;
-    const vm = vendorMeta(m.vendor);
-    const badge = m.region === "cn" ? '<span class="badge cn">国内</span>' : '<span class="badge intl">国外</span>';
-    const cost = costOn ? `<td class="num cost">${fmtNum(price(m.inputUSD * state.calcIn + m.outputUSD * state.calcOut))}</td>` : "";
-    const free = m.inputUSD === 0 && m.outputUSD === 0;
-    html.push(`<tr class="row${state.openRow === key ? " open" : ""}" data-key="${key}" style="--vc:${vm.color}">
-      <td class="vendor"><span class="vcell">${vlogoHtml(m.vendor)}${m.vendor}${badge}</span></td>
-      <td class="model-name">${m.model}</td>
-      <td class="num">${free ? "免费" : fmtNum(price(m.inputUSD))}</td>
-      <td class="num">${free ? "免费" : fmtNum(price(m.outputUSD))}</td>
-      <td class="num">${fmtCtx(m.context)}</td>${cost}
-    </tr>`);
-    if (state.openRow === key) html.push(detailRow(m));
+
+  const groups = new Map();
+  for (const m of list) {
+    const arr = groups.get(m.vendor);
+    if (arr) arr.push(m); else groups.set(m.vendor, [m]);
+  }
+  const groupArr = [...groups.entries()];
+  groupArr.sort((a, b) => {
+    if (state.sortKey === "vendor") return a[0].localeCompare(b[0], "zh-Hans-CN") * state.sortDir;
+    const minOf = (arr) => Math.min(...arr.map((m) => {
+      if (state.sortKey === "cost" && costOn) return m.inputUSD * state.calcIn + m.outputUSD * state.calcOut;
+      if (state.sortKey === "context") return m.context ?? Infinity;
+      return m[state.sortKey] ?? Infinity;
+    }));
+    return (minOf(a[1]) - minOf(b[1])) * state.sortDir;
   });
+
+  const nCols = costOn ? 6 : 5;
+  const html = [];
+  for (const [vendor, models] of groupArr) {
+    const vm = vendorMeta(vendor);
+    const badge = models[0].region === "cn" ? '<span class="badge cn">国内</span>' : '<span class="badge intl">国外</span>';
+    const minIn = Math.min(...models.map((m) => m.inputUSD ?? Infinity));
+    html.push(`<tr class="group" style="--vc:${vm.color}"><td colspan="${nCols}"><span class="gcell">${vlogoHtml(vendor)}${vendor}${badge}<span class="gmeta">${models.length} 款 · 输入 ${sym()}${fmtNum(price(minIn))} 起</span></span></td></tr>`);
+    for (const m of models) {
+      const key = keyOf(m);
+      const rowBadge = m.region === "cn" ? '<span class="badge cn">国内</span>' : '<span class="badge intl">国外</span>';
+      const cost = costOn ? `<td class="num cost">${fmtNum(price(m.inputUSD * state.calcIn + m.outputUSD * state.calcOut))}</td>` : "";
+      const free = m.inputUSD === 0 && m.outputUSD === 0;
+      html.push(`<tr class="row${state.openRow === key ? " open" : ""}" data-key="${key}" style="--vc:${vm.color}">
+        <td class="vendor"><span class="vcell">${vlogoHtml(m.vendor)}${m.vendor}${rowBadge}</span></td>
+        <td class="model-name">${m.model}</td>
+        <td class="num">${free ? "免费" : fmtNum(price(m.inputUSD))}</td>
+        <td class="num">${free ? "免费" : fmtNum(price(m.outputUSD))}</td>
+        <td class="num">${fmtCtx(m.context)}</td>${cost}
+      </tr>`);
+      if (state.openRow === key) html.push(detailRow(m));
+    }
+  }
   $("#bodyRows").innerHTML = html.join("");
   $("#bodyRows").querySelectorAll("tr.row").forEach((tr) => tr.addEventListener("click", () => {
     state.openRow = state.openRow === tr.dataset.key ? null : tr.dataset.key;
     render();
   }));
+}
+
+function render() {
+  if (state.tab === "plans") return renderPlans();
+  renderApi();
 }
 
 function updateMeta() {
@@ -419,11 +511,18 @@ function updateMeta() {
   $("#meta").innerHTML = `共 <b>${n}</b> ${unit} · 数据更新于 <b>${d.toLocaleString("zh-CN")}</b> · 汇率 1 USD = <b>${state.data.fx.USD_CNY.toFixed(2)}</b> CNY`;
 }
 
+function updateOldCnt() {
+  const hidden = state.data.models.length - state.latestKeys.size;
+  $("#oldCnt").textContent = state.latestOnly ? `(已隐藏 ${hidden})` : "";
+}
+
 async function init() {
   const res = await fetch("prices.json", { cache: "no-cache" });
   state.data = await res.json();
+  state.latestKeys = computeLatest(state.data.models);
 
   updateMeta();
+  updateOldCnt();
 
   $("#tabSeg").addEventListener("click", (e) => {
     if (e.target.tagName !== "BUTTON") return;
@@ -435,6 +534,7 @@ async function init() {
     $("#tabSeg").querySelectorAll("button").forEach((b) => b.classList.toggle("on", b === e.target));
     $("#catSeg").hidden = state.tab !== "plans";
     $("#calcPanel").hidden = state.tab !== "api";
+    $("#oldverWrap").hidden = state.tab !== "api";
     $("#q").placeholder = state.tab === "plans" ? "搜索套餐 / 厂商…" : "搜索模型 / 厂商…";
     updateMeta();
     renderVendorBar();
@@ -458,6 +558,13 @@ async function init() {
     if (e.target.tagName !== "BUTTON") return;
     state.currency = e.target.dataset.v;
     $("#curSeg").querySelectorAll("button").forEach((b) => b.classList.toggle("on", b === e.target));
+    render();
+  });
+  $("#oldver").addEventListener("change", (e) => {
+    state.latestOnly = !e.target.checked;
+    state.openRow = null;
+    updateOldCnt();
+    renderVendorBar();
     render();
   });
   const onCalc = () => {

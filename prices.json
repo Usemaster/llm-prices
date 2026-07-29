@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-07-29T04:29:31.497Z",
+  "updatedAt": "2026-07-29T11:31:17.139Z",
   "fx": {
     "USD_CNY": 6.77847,
     "source": "open.er-api.com"
   },
-  "count": 207,
+  "count": 180,
   "models": [
     {
       "vendor": "阿里百炼",
@@ -488,21 +488,6 @@
     {
       "vendor": "Anthropic",
       "region": "intl",
-      "model": "claude-fable-5:batch",
-      "modelId": "claude-fable-5:batch",
-      "input": 5,
-      "output": 25,
-      "currency": "USD",
-      "context": 1000000,
-      "source": "openrouter",
-      "sourceUrl": "https://www.anthropic.com/pricing",
-      "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 5,
-      "outputUSD": 25
-    },
-    {
-      "vendor": "Anthropic",
-      "region": "intl",
       "model": "claude-haiku-4-5",
       "modelId": "claude-haiku-4-5",
       "input": 1,
@@ -529,21 +514,6 @@
       "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
       "inputUSD": 1,
       "outputUSD": 5
-    },
-    {
-      "vendor": "Anthropic",
-      "region": "intl",
-      "model": "claude-haiku-4.5:batch",
-      "modelId": "claude-haiku-4.5:batch",
-      "input": 0.5,
-      "output": 2.5,
-      "currency": "USD",
-      "context": 200000,
-      "source": "openrouter",
-      "sourceUrl": "https://www.anthropic.com/pricing",
-      "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 0.5,
-      "outputUSD": 2.5
     },
     {
       "vendor": "Anthropic",
@@ -653,21 +623,6 @@
     {
       "vendor": "Anthropic",
       "region": "intl",
-      "model": "claude-opus-4.1:batch",
-      "modelId": "claude-opus-4.1:batch",
-      "input": 7.5,
-      "output": 37.5,
-      "currency": "USD",
-      "context": 200000,
-      "source": "openrouter",
-      "sourceUrl": "https://www.anthropic.com/pricing",
-      "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 7.5,
-      "outputUSD": 37.5
-    },
-    {
-      "vendor": "Anthropic",
-      "region": "intl",
       "model": "claude-opus-4.5",
       "modelId": "claude-opus-4.5",
       "input": 5,
@@ -683,21 +638,6 @@
     {
       "vendor": "Anthropic",
       "region": "intl",
-      "model": "claude-opus-4.5:batch",
-      "modelId": "claude-opus-4.5:batch",
-      "input": 2.5,
-      "output": 12.5,
-      "currency": "USD",
-      "context": 200000,
-      "source": "openrouter",
-      "sourceUrl": "https://www.anthropic.com/pricing",
-      "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 2.5,
-      "outputUSD": 12.5
-    },
-    {
-      "vendor": "Anthropic",
-      "region": "intl",
       "model": "claude-opus-4.6",
       "modelId": "claude-opus-4.6",
       "input": 5,
@@ -709,21 +649,6 @@
       "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
       "inputUSD": 5,
       "outputUSD": 25
-    },
-    {
-      "vendor": "Anthropic",
-      "region": "intl",
-      "model": "claude-opus-4.6:batch",
-      "modelId": "claude-opus-4.6:batch",
-      "input": 2.5,
-      "output": 12.5,
-      "currency": "USD",
-      "context": 1000000,
-      "source": "openrouter",
-      "sourceUrl": "https://www.anthropic.com/pricing",
-      "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 2.5,
-      "outputUSD": 12.5
     },
     {
       "vendor": "Anthropic",
@@ -758,21 +683,6 @@
     {
       "vendor": "Anthropic",
       "region": "intl",
-      "model": "claude-opus-4.7:batch",
-      "modelId": "claude-opus-4.7:batch",
-      "input": 2.5,
-      "output": 12.5,
-      "currency": "USD",
-      "context": 1000000,
-      "source": "openrouter",
-      "sourceUrl": "https://www.anthropic.com/pricing",
-      "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 2.5,
-      "outputUSD": 12.5
-    },
-    {
-      "vendor": "Anthropic",
-      "region": "intl",
       "model": "claude-opus-4.8",
       "modelId": "claude-opus-4.8",
       "input": 5,
@@ -799,21 +709,6 @@
       "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
       "inputUSD": 10,
       "outputUSD": 50
-    },
-    {
-      "vendor": "Anthropic",
-      "region": "intl",
-      "model": "claude-opus-4.8:batch",
-      "modelId": "claude-opus-4.8:batch",
-      "input": 2.5,
-      "output": 12.5,
-      "currency": "USD",
-      "context": 1000000,
-      "source": "openrouter",
-      "sourceUrl": "https://www.anthropic.com/pricing",
-      "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 2.5,
-      "outputUSD": 12.5
     },
     {
       "vendor": "Anthropic",
@@ -908,21 +803,6 @@
     {
       "vendor": "Anthropic",
       "region": "intl",
-      "model": "claude-sonnet-4.5:batch",
-      "modelId": "claude-sonnet-4.5:batch",
-      "input": 1.5,
-      "output": 7.5,
-      "currency": "USD",
-      "context": 1000000,
-      "source": "openrouter",
-      "sourceUrl": "https://www.anthropic.com/pricing",
-      "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 1.5,
-      "outputUSD": 7.5
-    },
-    {
-      "vendor": "Anthropic",
-      "region": "intl",
       "model": "claude-sonnet-4.6",
       "modelId": "claude-sonnet-4.6",
       "input": 3,
@@ -949,21 +829,6 @@
       "notes": "",
       "inputUSD": 2,
       "outputUSD": 10
-    },
-    {
-      "vendor": "Anthropic",
-      "region": "intl",
-      "model": "claude-sonnet-5:batch",
-      "modelId": "claude-sonnet-5:batch",
-      "input": 1,
-      "output": 5,
-      "currency": "USD",
-      "context": 1000000,
-      "source": "openrouter",
-      "sourceUrl": "https://www.anthropic.com/pricing",
-      "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 1,
-      "outputUSD": 5
     },
     {
       "vendor": "DeepSeek",
@@ -1060,36 +925,6 @@
     {
       "vendor": "Google",
       "region": "intl",
-      "model": "gemini-2.5-flash-lite:batch",
-      "modelId": "gemini-2.5-flash-lite:batch",
-      "input": 0.05,
-      "output": 0.2,
-      "currency": "USD",
-      "context": 1048576,
-      "source": "openrouter",
-      "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
-      "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 0.05,
-      "outputUSD": 0.2
-    },
-    {
-      "vendor": "Google",
-      "region": "intl",
-      "model": "gemini-2.5-flash:batch",
-      "modelId": "gemini-2.5-flash:batch",
-      "input": 0.15,
-      "output": 1.25,
-      "currency": "USD",
-      "context": 1048576,
-      "source": "openrouter",
-      "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
-      "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 0.15,
-      "outputUSD": 1.25
-    },
-    {
-      "vendor": "Google",
-      "region": "intl",
       "model": "gemini-2.5-pro",
       "modelId": "gemini-2.5-pro",
       "input": 1.25,
@@ -1120,21 +955,6 @@
     {
       "vendor": "Google",
       "region": "intl",
-      "model": "gemini-2.5-pro:batch",
-      "modelId": "gemini-2.5-pro:batch",
-      "input": 0.625,
-      "output": 5,
-      "currency": "USD",
-      "context": 1048576,
-      "source": "openrouter",
-      "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
-      "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 0.625,
-      "outputUSD": 5
-    },
-    {
-      "vendor": "Google",
-      "region": "intl",
       "model": "gemini-3-flash-preview",
       "modelId": "gemini-3-flash-preview",
       "input": 0.5,
@@ -1146,21 +966,6 @@
       "notes": "",
       "inputUSD": 0.5,
       "outputUSD": 3
-    },
-    {
-      "vendor": "Google",
-      "region": "intl",
-      "model": "gemini-3-flash-preview:batch",
-      "modelId": "gemini-3-flash-preview:batch",
-      "input": 0.25,
-      "output": 1.5,
-      "currency": "USD",
-      "context": 1048576,
-      "source": "openrouter",
-      "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
-      "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 0.25,
-      "outputUSD": 1.5
     },
     {
       "vendor": "Google",
@@ -1210,21 +1015,6 @@
     {
       "vendor": "Google",
       "region": "intl",
-      "model": "gemini-3.1-flash-lite:batch",
-      "modelId": "gemini-3.1-flash-lite:batch",
-      "input": 0.125,
-      "output": 0.75,
-      "currency": "USD",
-      "context": 1048576,
-      "source": "openrouter",
-      "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
-      "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 0.125,
-      "outputUSD": 0.75
-    },
-    {
-      "vendor": "Google",
-      "region": "intl",
       "model": "gemini-3.1-flash-live-preview",
       "modelId": "gemini-3.1-flash-live-preview",
       "input": 0.75,
@@ -1270,21 +1060,6 @@
     {
       "vendor": "Google",
       "region": "intl",
-      "model": "gemini-3.1-pro-preview:batch",
-      "modelId": "gemini-3.1-pro-preview:batch",
-      "input": 1,
-      "output": 6,
-      "currency": "USD",
-      "context": 1048576,
-      "source": "openrouter",
-      "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
-      "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 1,
-      "outputUSD": 6
-    },
-    {
-      "vendor": "Google",
-      "region": "intl",
       "model": "gemini-3.5-flash",
       "modelId": "gemini-3.5-flash",
       "input": 1.5,
@@ -1315,36 +1090,6 @@
     {
       "vendor": "Google",
       "region": "intl",
-      "model": "gemini-3.5-flash-lite:batch",
-      "modelId": "gemini-3.5-flash-lite:batch",
-      "input": 0.15,
-      "output": 1.25,
-      "currency": "USD",
-      "context": 1048576,
-      "source": "openrouter",
-      "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
-      "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 0.15,
-      "outputUSD": 1.25
-    },
-    {
-      "vendor": "Google",
-      "region": "intl",
-      "model": "gemini-3.5-flash:batch",
-      "modelId": "gemini-3.5-flash:batch",
-      "input": 0.75,
-      "output": 4.5,
-      "currency": "USD",
-      "context": 1048576,
-      "source": "openrouter",
-      "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
-      "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 0.75,
-      "outputUSD": 4.5
-    },
-    {
-      "vendor": "Google",
-      "region": "intl",
       "model": "gemini-3.6-flash",
       "modelId": "gemini-3.6-flash",
       "input": 1.5,
@@ -1356,21 +1101,6 @@
       "notes": "",
       "inputUSD": 1.5,
       "outputUSD": 7.5
-    },
-    {
-      "vendor": "Google",
-      "region": "intl",
-      "model": "gemini-3.6-flash:batch",
-      "modelId": "gemini-3.6-flash:batch",
-      "input": 0.75,
-      "output": 3.75,
-      "currency": "USD",
-      "context": 1048576,
-      "source": "openrouter",
-      "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
-      "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 0.75,
-      "outputUSD": 3.75
     },
     {
       "vendor": "Google",
@@ -1527,15 +1257,15 @@
       "region": "intl",
       "model": "gemma-4-26b-a4b-it",
       "modelId": "gemma-4-26b-a4b-it",
-      "input": 0.15,
-      "output": 0.6,
+      "input": 0.07,
+      "output": 0.34,
       "currency": "USD",
       "context": 262144,
       "source": "openrouter",
       "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
       "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 0.15,
-      "outputUSD": 0.6
+      "inputUSD": 0.07,
+      "outputUSD": 0.34
     },
     {
       "vendor": "Google",
@@ -2178,21 +1908,6 @@
     {
       "vendor": "OpenAI",
       "region": "intl",
-      "model": "gpt-5-mini:batch",
-      "modelId": "gpt-5-mini:batch",
-      "input": 0.125,
-      "output": 1,
-      "currency": "USD",
-      "context": 400000,
-      "source": "openrouter",
-      "sourceUrl": "https://openai.com/api/pricing/",
-      "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 0.125,
-      "outputUSD": 1
-    },
-    {
-      "vendor": "OpenAI",
-      "region": "intl",
       "model": "gpt-5-nano",
       "modelId": "gpt-5-nano",
       "input": 0.05,
@@ -2208,21 +1923,6 @@
     {
       "vendor": "OpenAI",
       "region": "intl",
-      "model": "gpt-5-nano:batch",
-      "modelId": "gpt-5-nano:batch",
-      "input": 0.025,
-      "output": 0.2,
-      "currency": "USD",
-      "context": 400000,
-      "source": "openrouter",
-      "sourceUrl": "https://openai.com/api/pricing/",
-      "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 0.025,
-      "outputUSD": 0.2
-    },
-    {
-      "vendor": "OpenAI",
-      "region": "intl",
       "model": "gpt-5-pro",
       "modelId": "gpt-5-pro",
       "input": 15,
@@ -2234,21 +1934,6 @@
       "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
       "inputUSD": 15,
       "outputUSD": 120
-    },
-    {
-      "vendor": "OpenAI",
-      "region": "intl",
-      "model": "gpt-5:batch",
-      "modelId": "gpt-5:batch",
-      "input": 0.625,
-      "output": 5,
-      "currency": "USD",
-      "context": 400000,
-      "source": "openrouter",
-      "sourceUrl": "https://openai.com/api/pricing/",
-      "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 0.625,
-      "outputUSD": 5
     },
     {
       "vendor": "OpenAI",
@@ -2328,21 +2013,6 @@
     {
       "vendor": "OpenAI",
       "region": "intl",
-      "model": "gpt-5.1:batch",
-      "modelId": "gpt-5.1:batch",
-      "input": 0.625,
-      "output": 5,
-      "currency": "USD",
-      "context": 400000,
-      "source": "openrouter",
-      "sourceUrl": "https://openai.com/api/pricing/",
-      "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 0.625,
-      "outputUSD": 5
-    },
-    {
-      "vendor": "OpenAI",
-      "region": "intl",
       "model": "gpt-5.2",
       "modelId": "gpt-5.2",
       "input": 1.75,
@@ -2399,21 +2069,6 @@
       "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
       "inputUSD": 21,
       "outputUSD": 168
-    },
-    {
-      "vendor": "OpenAI",
-      "region": "intl",
-      "model": "gpt-5.2:batch",
-      "modelId": "gpt-5.2:batch",
-      "input": 0.875,
-      "output": 7,
-      "currency": "USD",
-      "context": 400000,
-      "source": "openrouter",
-      "sourceUrl": "https://openai.com/api/pricing/",
-      "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 0.875,
-      "outputUSD": 7
     },
     {
       "vendor": "OpenAI",
@@ -2478,21 +2133,6 @@
     {
       "vendor": "OpenAI",
       "region": "intl",
-      "model": "gpt-5.4-mini:batch",
-      "modelId": "gpt-5.4-mini:batch",
-      "input": 0.375,
-      "output": 2.25,
-      "currency": "USD",
-      "context": 400000,
-      "source": "openrouter",
-      "sourceUrl": "https://openai.com/api/pricing/",
-      "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 0.375,
-      "outputUSD": 2.25
-    },
-    {
-      "vendor": "OpenAI",
-      "region": "intl",
       "model": "gpt-5.4-nano",
       "modelId": "gpt-5.4-nano",
       "input": 0.2,
@@ -2508,21 +2148,6 @@
     {
       "vendor": "OpenAI",
       "region": "intl",
-      "model": "gpt-5.4-nano:batch",
-      "modelId": "gpt-5.4-nano:batch",
-      "input": 0.1,
-      "output": 0.625,
-      "currency": "USD",
-      "context": 400000,
-      "source": "openrouter",
-      "sourceUrl": "https://openai.com/api/pricing/",
-      "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 0.1,
-      "outputUSD": 0.625
-    },
-    {
-      "vendor": "OpenAI",
-      "region": "intl",
       "model": "gpt-5.4-pro",
       "modelId": "gpt-5.4-pro",
       "input": 30,
@@ -2534,21 +2159,6 @@
       "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
       "inputUSD": 30,
       "outputUSD": 180
-    },
-    {
-      "vendor": "OpenAI",
-      "region": "intl",
-      "model": "gpt-5.4:batch",
-      "modelId": "gpt-5.4:batch",
-      "input": 1.25,
-      "output": 7.5,
-      "currency": "USD",
-      "context": 1050000,
-      "source": "openrouter",
-      "sourceUrl": "https://openai.com/api/pricing/",
-      "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 1.25,
-      "outputUSD": 7.5
     },
     {
       "vendor": "OpenAI",
@@ -2579,21 +2189,6 @@
       "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
       "inputUSD": 30,
       "outputUSD": 180
-    },
-    {
-      "vendor": "OpenAI",
-      "region": "intl",
-      "model": "gpt-5.5:batch",
-      "modelId": "gpt-5.5:batch",
-      "input": 2.5,
-      "output": 15,
-      "currency": "USD",
-      "context": 1050000,
-      "source": "openrouter",
-      "sourceUrl": "https://openai.com/api/pricing/",
-      "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 2.5,
-      "outputUSD": 15
     },
     {
       "vendor": "OpenAI",
