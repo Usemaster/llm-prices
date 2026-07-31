@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-07-30T04:19:02.921Z",
+  "updatedAt": "2026-07-31T04:38:10.622Z",
   "fx": {
-    "USD_CNY": 6.773647,
+    "USD_CNY": 6.765736,
     "source": "open.er-api.com"
   },
-  "count": 180,
+  "count": 179,
   "models": [
     {
       "vendor": "阿里百炼",
@@ -19,8 +19,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": ">128K 档 ¥0.6/¥6",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.0221446,
-      "outputUSD": 0.221446
+      "inputUSD": 0.0221705,
+      "outputUSD": 0.221705
     },
     {
       "vendor": "阿里百炼",
@@ -35,8 +35,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": "Batch 半价",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.0738155,
-      "outputUSD": 0.295262
+      "inputUSD": 0.0739018,
+      "outputUSD": 0.295607
     },
     {
       "vendor": "阿里百炼",
@@ -51,8 +51,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": "思考模式输出 ¥8;>128K 档 ¥2.4/¥20",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.118105,
-      "outputUSD": 0.295262
+      "inputUSD": 0.118243,
+      "outputUSD": 0.295607
     },
     {
       "vendor": "阿里百炼",
@@ -67,8 +67,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": "思考模式输出 ¥3",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.0442893,
-      "outputUSD": 0.0885786
+      "inputUSD": 0.0443411,
+      "outputUSD": 0.0886821
     },
     {
       "vendor": "阿里百炼",
@@ -83,8 +83,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": "思考模式输出 ¥20",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.295262,
-      "outputUSD": 1.18105
+      "inputUSD": 0.295607,
+      "outputUSD": 1.18243
     },
     {
       "vendor": "阿里百炼",
@@ -99,8 +99,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": "思考模式输出 ¥7.5",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.110723,
-      "outputUSD": 0.442893
+      "inputUSD": 0.110853,
+      "outputUSD": 0.443411
     },
     {
       "vendor": "阿里百炼",
@@ -115,8 +115,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": "阶梯最高档 ¥5/¥25",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.147631,
-      "outputUSD": 0.590524
+      "inputUSD": 0.147804,
+      "outputUSD": 0.591214
     },
     {
       "vendor": "阿里百炼",
@@ -131,8 +131,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": "阶梯最高档 ¥20/¥200",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.590524,
-      "outputUSD": 2.3621
+      "inputUSD": 0.591214,
+      "outputUSD": 2.36486
     },
     {
       "vendor": "阿里百炼",
@@ -147,8 +147,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": "阶梯:>32K ¥4/¥16,>128K ¥7/¥28",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.369077,
-      "outputUSD": 1.47631
+      "inputUSD": 0.369509,
+      "outputUSD": 1.47804
     },
     {
       "vendor": "阿里百炼",
@@ -163,8 +163,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": "开源版;>128K 档 ¥3/¥18",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.177157,
-      "outputUSD": 1.06294
+      "inputUSD": 0.177364,
+      "outputUSD": 1.06419
     },
     {
       "vendor": "阿里百炼",
@@ -179,8 +179,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": ">128K 档 ¥0.8/¥8",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.0295262,
-      "outputUSD": 0.295262
+      "inputUSD": 0.0295607,
+      "outputUSD": 0.295607
     },
     {
       "vendor": "阿里百炼",
@@ -195,8 +195,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": "开源版",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.442893,
-      "outputUSD": 2.65736
+      "inputUSD": 0.443411,
+      "outputUSD": 2.66046
     },
     {
       "vendor": "阿里百炼",
@@ -211,8 +211,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": "开源版",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.265736,
-      "outputUSD": 1.59441
+      "inputUSD": 0.266046,
+      "outputUSD": 1.59628
     },
     {
       "vendor": "阿里百炼",
@@ -227,8 +227,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": ">256K 档 ¥4.8/¥28.8",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.177157,
-      "outputUSD": 1.06294
+      "inputUSD": 0.177364,
+      "outputUSD": 1.06419
     },
     {
       "vendor": "阿里百炼",
@@ -243,8 +243,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": "限时 5 折中;Batch 半价;缓存有折扣",
       "observedAt": "2026-07-23",
-      "inputUSD": 1.77157,
-      "outputUSD": 5.31471
+      "inputUSD": 1.77364,
+      "outputUSD": 5.32093
     },
     {
       "vendor": "阿里百炼",
@@ -259,8 +259,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": "限时 8 折;>256K 档 ¥6/¥24",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.295262,
-      "outputUSD": 1.18105
+      "inputUSD": 0.295607,
+      "outputUSD": 1.18243
     },
     {
       "vendor": "阿里百炼",
@@ -275,8 +275,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "notes": "推理模型",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.23621,
-      "outputUSD": 0.590524
+      "inputUSD": 0.236486,
+      "outputUSD": 0.591214
     },
     {
       "vendor": "豆包",
@@ -291,8 +291,8 @@
       "sourceUrl": "https://www.volcengine.com/docs/82379/1544106",
       "notes": "缓存命中输入 ¥0.16;输出>0.2K 档 ¥8",
       "observedAt": "2026-07-25",
-      "inputUSD": 0.118105,
-      "outputUSD": 0.295262
+      "inputUSD": 0.118243,
+      "outputUSD": 0.295607
     },
     {
       "vendor": "豆包",
@@ -307,8 +307,8 @@
       "sourceUrl": "https://www.volcengine.com/docs/82379/1544106",
       "notes": "缓存命中输入 ¥0.12;阶梯:(32,128]K ¥0.9/¥5.4,(128,256]K ¥1.8/¥10.8;音频输入 ¥9",
       "observedAt": "2026-07-25",
-      "inputUSD": 0.0885786,
-      "outputUSD": 0.531471
+      "inputUSD": 0.0886821,
+      "outputUSD": 0.532093
     },
     {
       "vendor": "豆包",
@@ -323,8 +323,8 @@
       "sourceUrl": "https://www.volcengine.com/docs/82379/1544106",
       "notes": "缓存命中输入 ¥0.64;阶梯:(32,128]K ¥4.8/¥24,(128,256]K ¥9.6/¥48",
       "observedAt": "2026-07-25",
-      "inputUSD": 0.472419,
-      "outputUSD": 2.3621
+      "inputUSD": 0.472971,
+      "outputUSD": 2.36486
     },
     {
       "vendor": "腾讯混元",
@@ -339,8 +339,8 @@
       "sourceUrl": "https://cloud.tencent.com/document/product/1729/97731",
       "notes": "混元服务正迁移至 TokenHub",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.0738155,
-      "outputUSD": 0.295262
+      "inputUSD": 0.0739018,
+      "outputUSD": 0.295607
     },
     {
       "vendor": "智谱",
@@ -355,8 +355,8 @@
       "sourceUrl": "https://open.bigmodel.cn/pricing",
       "notes": "高档 ¥1.2/¥8;缓存 ¥0.16",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.118105,
-      "outputUSD": 0.295262
+      "inputUSD": 0.118243,
+      "outputUSD": 0.295607
     },
     {
       "vendor": "智谱",
@@ -371,8 +371,8 @@
       "sourceUrl": "https://open.bigmodel.cn/pricing",
       "notes": "长输入/长输出高档 ¥3-4/¥14-16;缓存 ¥0.4",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.295262,
-      "outputUSD": 1.18105
+      "inputUSD": 0.295607,
+      "outputUSD": 1.18243
     },
     {
       "vendor": "智谱",
@@ -403,8 +403,8 @@
       "sourceUrl": "https://open.bigmodel.cn/pricing",
       "notes": "缓存 ¥0.1",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.0738155,
-      "outputUSD": 0.442893
+      "inputUSD": 0.0739018,
+      "outputUSD": 0.443411
     },
     {
       "vendor": "智谱",
@@ -419,8 +419,8 @@
       "sourceUrl": "https://open.bigmodel.cn/pricing",
       "notes": "输入≥32K 档 ¥6/¥22;缓存 ¥1",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.590524,
-      "outputUSD": 2.65736
+      "inputUSD": 0.591214,
+      "outputUSD": 2.66046
     },
     {
       "vendor": "智谱",
@@ -435,8 +435,8 @@
       "sourceUrl": "https://open.bigmodel.cn/pricing",
       "notes": "输入≥32K 档 ¥7/¥26;缓存 ¥1.2",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.738155,
-      "outputUSD": 3.24788
+      "inputUSD": 0.739018,
+      "outputUSD": 3.25168
     },
     {
       "vendor": "智谱",
@@ -451,8 +451,8 @@
       "sourceUrl": "https://open.bigmodel.cn/pricing",
       "notes": "输入≥32K 档 ¥8/¥28;缓存 ¥1.3",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.885786,
-      "outputUSD": 3.54314
+      "inputUSD": 0.886821,
+      "outputUSD": 3.54729
     },
     {
       "vendor": "智谱",
@@ -467,8 +467,8 @@
       "sourceUrl": "https://open.bigmodel.cn/pricing",
       "notes": "缓存输入 ¥2",
       "observedAt": "2026-07-23",
-      "inputUSD": 1.18105,
-      "outputUSD": 4.13367
+      "inputUSD": 1.18243,
+      "outputUSD": 4.1385
     },
     {
       "vendor": "Anthropic",
@@ -843,8 +843,8 @@
       "sourceUrl": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing",
       "notes": "缓存命中输入 ¥0.02;原 deepseek-chat/reasoner 已并入此模型",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.147631,
-      "outputUSD": 0.295262
+      "inputUSD": 0.147804,
+      "outputUSD": 0.295607
     },
     {
       "vendor": "DeepSeek",
@@ -859,8 +859,8 @@
       "sourceUrl": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing",
       "notes": "缓存命中输入 ¥0.025",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.442893,
-      "outputUSD": 0.885786
+      "inputUSD": 0.443411,
+      "outputUSD": 0.886821
     },
     {
       "vendor": "Google",
@@ -1295,8 +1295,8 @@
       "sourceUrl": "https://platform.moonshot.cn/docs/pricing/chat-k25",
       "notes": "缓存命中输入 ¥0.7",
       "observedAt": "2026-07-25",
-      "inputUSD": 0.590524,
-      "outputUSD": 3.10025
+      "inputUSD": 0.591214,
+      "outputUSD": 3.10388
     },
     {
       "vendor": "Kimi",
@@ -1311,8 +1311,8 @@
       "sourceUrl": "https://platform.moonshot.cn/docs/pricing/chat-k26",
       "notes": "缓存命中输入 ¥1.1",
       "observedAt": "2026-07-25",
-      "inputUSD": 0.959601,
-      "outputUSD": 3.98604
+      "inputUSD": 0.960723,
+      "outputUSD": 3.9907
     },
     {
       "vendor": "Kimi",
@@ -1327,8 +1327,8 @@
       "sourceUrl": "https://platform.moonshot.cn/docs/pricing/chat-k27-code",
       "notes": "缓存命中输入 ¥1.3",
       "observedAt": "2026-07-25",
-      "inputUSD": 0.959601,
-      "outputUSD": 3.98604
+      "inputUSD": 0.960723,
+      "outputUSD": 3.9907
     },
     {
       "vendor": "Kimi",
@@ -1343,8 +1343,8 @@
       "sourceUrl": "https://platform.moonshot.cn/docs/pricing/chat-k27-code",
       "notes": "高速版(约 180 tokens/s);缓存命中输入 ¥2.6",
       "observedAt": "2026-07-25",
-      "inputUSD": 1.9192,
-      "outputUSD": 7.97207
+      "inputUSD": 1.92145,
+      "outputUSD": 7.98139
     },
     {
       "vendor": "Kimi",
@@ -1359,8 +1359,8 @@
       "sourceUrl": "https://platform.moonshot.cn/docs/pricing/chat-k3",
       "notes": "缓存命中输入 ¥2;国际站美元价 $3/$15",
       "observedAt": "2026-07-25",
-      "inputUSD": 2.95262,
-      "outputUSD": 14.7631
+      "inputUSD": 2.95607,
+      "outputUSD": 14.7804
     },
     {
       "vendor": "MiniMax",
@@ -1375,8 +1375,8 @@
       "sourceUrl": "https://platform.minimaxi.com/docs/guides/pricing-paygo",
       "notes": "缓存读 ¥0.42",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.310025,
-      "outputUSD": 1.2401
+      "inputUSD": 0.310388,
+      "outputUSD": 1.24155
     },
     {
       "vendor": "MiniMax",
@@ -1391,8 +1391,8 @@
       "sourceUrl": "https://platform.minimaxi.com/docs/guides/pricing-paygo",
       "notes": "高速版",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.62005,
-      "outputUSD": 2.4802
+      "inputUSD": 0.620775,
+      "outputUSD": 2.4831
     },
     {
       "vendor": "MiniMax",
@@ -1407,8 +1407,8 @@
       "sourceUrl": "https://platform.minimaxi.com/docs/guides/pricing-paygo",
       "notes": "≤512K 输入档(永久五折后);>512K 档 ¥4.2/¥16.8;缓存读 ¥0.42;优先服务 1.5×",
       "observedAt": "2026-07-23",
-      "inputUSD": 0.310025,
-      "outputUSD": 1.2401
+      "inputUSD": 0.310388,
+      "outputUSD": 1.24155
     },
     {
       "vendor": "Mistral",
@@ -1878,21 +1878,6 @@
     {
       "vendor": "OpenAI",
       "region": "intl",
-      "model": "gpt-5-codex",
-      "modelId": "gpt-5-codex",
-      "input": 1.25,
-      "output": 10,
-      "currency": "USD",
-      "context": 400000,
-      "source": "openrouter",
-      "sourceUrl": "https://openai.com/api/pricing/",
-      "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 1.25,
-      "outputUSD": 10
-    },
-    {
-      "vendor": "OpenAI",
-      "region": "intl",
       "model": "gpt-5-mini",
       "modelId": "gpt-5-mini",
       "input": 0.25,
@@ -2123,7 +2108,7 @@
       "input": 0.75,
       "output": 4.5,
       "currency": "USD",
-      "context": 1050000,
+      "context": 272000,
       "source": "litellm",
       "sourceUrl": "https://openai.com/api/pricing/",
       "notes": "",
@@ -2138,7 +2123,7 @@
       "input": 0.2,
       "output": 1.25,
       "currency": "USD",
-      "context": 1050000,
+      "context": 272000,
       "source": "litellm",
       "sourceUrl": "https://openai.com/api/pricing/",
       "notes": "",
@@ -2225,15 +2210,15 @@
       "region": "intl",
       "model": "gpt-5.6-luna-pro",
       "modelId": "gpt-5.6-luna-pro",
-      "input": 0.5,
-      "output": 3,
+      "input": 0.1,
+      "output": 0.6,
       "currency": "USD",
       "context": 1050000,
       "source": "openrouter",
       "sourceUrl": "https://openai.com/api/pricing/",
       "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 0.5,
-      "outputUSD": 3
+      "inputUSD": 0.1,
+      "outputUSD": 0.6
     },
     {
       "vendor": "OpenAI",
@@ -2285,15 +2270,15 @@
       "region": "intl",
       "model": "gpt-5.6-terra-pro",
       "modelId": "gpt-5.6-terra-pro",
-      "input": 1.25,
-      "output": 7.5,
+      "input": 1,
+      "output": 6,
       "currency": "USD",
       "context": 1050000,
       "source": "openrouter",
       "sourceUrl": "https://openai.com/api/pricing/",
       "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 1.25,
-      "outputUSD": 7.5
+      "inputUSD": 1,
+      "outputUSD": 6
     },
     {
       "vendor": "OpenAI",
@@ -3095,7 +3080,7 @@
           "currency": "CNY",
           "annualNote": "连续包季 9 折 ¥44.1/月；连续包年 8 折约 ¥39.2/月",
           "quota": "每 5 小时最多约 80 次 prompts，每周最多约 400 次 prompts（官方预估值）；联网搜索/网页读取/开源仓库 MCP 每月合计 100 次",
-          "monthlyUSD": 7.23392
+          "monthlyUSD": 7.24238
         },
         {
           "name": "Pro",
@@ -3103,7 +3088,7 @@
           "currency": "CNY",
           "annualNote": "连续包季 9 折 ¥134.1/月；连续包年 8 折约 ¥119.2/月",
           "quota": "每 5 小时最多约 400 次 prompts，每周最多约 2000 次 prompts（5x Lite）；联网搜索等 MCP 每月合计 1000 次",
-          "monthlyUSD": 21.997
+          "monthlyUSD": 22.0227
         },
         {
           "name": "Max",
@@ -3111,7 +3096,7 @@
           "currency": "CNY",
           "annualNote": "连续包季 9 折 ¥422.1/月；连续包年 8 折约 ¥375.2/月",
           "quota": "每 5 小时最多约 1600 次 prompts，每周最多约 8000 次 prompts（20x Lite）；联网搜索等 MCP 每月合计 4000 次",
-          "monthlyUSD": 69.2389
+          "monthlyUSD": 69.3199
         }
       ],
       "models": "GLM-5.2、GLM-5-Turbo、GLM-4.7（官方文档口径；调用旧版 GLM-5.1/GLM-5 自动切换至 GLM-5.2）",
@@ -3120,8 +3105,8 @@
       "sourceUrl": "https://www.bigmodel.cn/glm-coding",
       "notes": "2026-02-12 官方价格调整函：取消首购优惠，保留季付 9 折/年付 8 折，整体涨幅 30% 起，存量订阅用户价格不变；当前个人套餐为限量供应（页面标注需抢购、需实名认证）。GLM-5.2/GLM-5-Turbo 按高峰期 3 倍、非高峰 2 倍消耗额度（高峰为每日 14:00–18:00 UTC+8），限时福利为非高峰仅 1 倍抵扣、持续至 2026 年 9 月底。额度为硬限制：耗尽后等下一个 5 小时周期恢复，不扣账户余额。仅限官方支持的编程工具内使用，不能作为通用 API。国际版（z.ai，美元计价）额度规则相同，价格为 Lite $18/月（官方文档确认）、Pro $72/月、Max $160/月（后两者来自 2026 年 7 月多个一致第三方来源，z.ai 订阅页为 JS 渲染未能直接核验）。官方称月额度按 API 定价折算约为订阅费的 15–30 倍。",
       "observedAt": "2026-07-26",
-      "entryUSD": 7.23392,
-      "maxUSD": 69.2389
+      "entryUSD": 7.24238,
+      "maxUSD": 69.3199
     },
     {
       "vendor": "Kimi",
@@ -3136,7 +3121,7 @@
           "currency": "CNY",
           "annualNote": "官方称连续包年更优惠；第三方汇总约 ¥39/月（8 折），官方未列明细",
           "quota": "Kimi Code 1 倍额度；与会员共享月度 token 额度池，另有每 5 小时滚动频控 + 每 7 天刷新的周额度（官方未公布基准次数，全站口径约每 5 小时 300–1200 次请求、并发最高 30）",
-          "monthlyUSD": 7.23392
+          "monthlyUSD": 7.24238
         },
         {
           "name": "Moderato",
@@ -3144,7 +3129,7 @@
           "currency": "CNY",
           "annualNote": "官方称连续包年更优惠；第三方汇总约 ¥79/月（8 折），官方未列明细",
           "quota": "Kimi Code 4 倍额度，可调用 k3 / k3-256k 模型；共享月度额度池 + 5 小时频控 + 周额度",
-          "monthlyUSD": 14.6155
+          "monthlyUSD": 14.6326
         },
         {
           "name": "Allegretto",
@@ -3152,7 +3137,7 @@
           "currency": "CNY",
           "annualNote": "官方称连续包年更优惠；第三方汇总约 ¥159/月（8 折），官方未列明细",
           "quota": "Kimi Code 20 倍额度；解锁 k3 最高 100 万上下文及 kimi-for-coding-highspeed 高速版（消耗约为普通版 3 倍）",
-          "monthlyUSD": 29.3786
+          "monthlyUSD": 29.4129
         },
         {
           "name": "Allegro",
@@ -3160,7 +3145,7 @@
           "currency": "CNY",
           "annualNote": "官方称年付最高立省 ¥1,680，未列该档具体折算价",
           "quota": "Kimi Code 60 倍额度；共享月度额度池 + 5 小时频控 + 周额度",
-          "monthlyUSD": 103.194
+          "monthlyUSD": 103.315
         }
       ],
       "models": "Kimi K2.7 Code（模型 ID kimi-for-coding，所有付费会员可用；高速版 Allegretto 及以上）与 Kimi K3（k3 / k3-256k，Moderato 及以上，Allegretto 及以上解锁 1M 上下文）",
@@ -3169,8 +3154,8 @@
       "sourceUrl": "https://www.kimi.com/zh-cn/help/membership/membership-pricing",
       "notes": "① 编程权益（Kimi Code）绑定在通用会员内，与聊天/Agent 等共享同一月度 token 额度池，月额度耗尽会冻结 Kimi Code；② 2026-07-19 起因 K3 发布后算力逼近极限，官方暂停 C 端新用户订阅（恢复时间未定）；③ 官方预告新会员体系即将把 Kimi Code 权益拆分单独售卖，现有订阅不受影响，价格体系可能变动；④ 权益仅限个人开发，官方认可工具为 Kimi Code CLI / Claude Code / Roo Code，在其他工具使用 API Key 或篡改 User-Agent 可能被视为滥用；⑤ 额度用尽可购「加油包」按量兜底（人民币计价，价格近似开放平台 API）；⑥ 国际版体系不同：Moderato $19 / Allegretto $39 / Allegro $99 / Vivace $199 每月，Kimi Code 额度 1×/5×/15×/30×，年付折算 $15/$31/$79/$159 每月（来源 kimi.com/help/membership/membership-pricing）；⑦ 2025 年的独立「Kimi for Coding」套餐（¥49/99/199）已并入会员体系",
       "observedAt": "2026-07-26",
-      "entryUSD": 7.23392,
-      "maxUSD": 103.194
+      "entryUSD": 7.24238,
+      "maxUSD": 103.315
     },
     {
       "vendor": "MiniMax",
@@ -3185,7 +3170,7 @@
           "currency": "CNY",
           "annualNote": "连续包年 ¥490/年（立省 2 个月，约 ¥40.8/月）",
           "quota": "每月约 6 亿+ token（M3 计），约合 12,000 次编程调用/月（按单次 ~50K token 估算）；支持 3-4 个 Agent 并发；额度按实际用量扣减，受 5 小时窗口 + 周窗口限制，不结转；不含视频生成",
-          "monthlyUSD": 7.23392
+          "monthlyUSD": 7.24238
         },
         {
           "name": "Max",
@@ -3193,7 +3178,7 @@
           "currency": "CNY",
           "annualNote": "连续包年 ¥1,190/年（立省 2 个月，约 ¥99.2/月）",
           "quota": "每月约 18 亿+ token（M3 计），约合 36,000 次编程调用/月；支持 4-5 个 Agent 并发；5 小时窗口 + 周窗口；含视频生成 3 条/日",
-          "monthlyUSD": 17.5681
+          "monthlyUSD": 17.5886
         },
         {
           "name": "Ultra",
@@ -3201,7 +3186,7 @@
           "currency": "CNY",
           "annualNote": "连续包年 ¥4,690/年（立省 2 个月，约 ¥390.8/月）",
           "quota": "每月约 71 亿+ token（M3 计），约合 140,000 次编程调用/月；支持 6-7 个 Agent 并发；5 小时窗口 + 周窗口；含视频生成 5 条/日",
-          "monthlyUSD": 69.2389
+          "monthlyUSD": 69.3199
         }
       ],
       "models": "MiniMax 全系模型共享同一额度：M3（1M 上下文、原生多模态）、M2.7 / M2.7-highspeed，以及图像、语音、音乐、视频生成模型",
@@ -3210,8 +3195,8 @@
       "sourceUrl": "https://platform.minimaxi.com/subscribe/token-plan",
       "notes": "Token Plan 为原 Coding Plan 于 2026-03 升级而来，编程额度与多模态（图像/语音/音乐/视频）共享统一额度池，按实际 token 用量扣减。旧 Starter 档（国际 $10/月、国内约 ¥29/月）已停售新订，仅老用户可续。国际版（platform.minimax.io）为美元计价：Plus $20/月、Max $50/月、Ultra $120/月（官方英文文档确认），年付规则同为省 2 个月但具体美元年付金额未在官方页面抓到。额度受 5 小时窗口和周窗口限制，未用完不结转；超限后可用已购积分（Credits）补充、升级套餐或切回按量付费 API Key。高峰时段（工作日约 15:00-17:30）有动态限流。面向个人交互式使用，生产环境建议按量付费。另有团队版按席位购买（5 人以上）。",
       "observedAt": "2026-07-26",
-      "entryUSD": 7.23392,
-      "maxUSD": 69.2389
+      "entryUSD": 7.24238,
+      "maxUSD": 69.3199
     },
     {
       "vendor": "阿里",
@@ -3226,7 +3211,7 @@
           "currency": "CNY",
           "annualNote": "",
           "quota": "每月 2,000 Credits（对话/智能体请求按量抵扣）+ 更多次代码补全；含 Quest 模式、Repo Wiki、专家团",
-          "monthlyUSD": 8.71023
+          "monthlyUSD": 8.72041
         },
         {
           "name": "个人高级版 Pro+",
@@ -3234,7 +3219,7 @@
           "currency": "CNY",
           "annualNote": "",
           "quota": "每月 6,000 Credits，包含专业版全部功能",
-          "monthlyUSD": 24.9496
+          "monthlyUSD": 24.9788
         }
       ],
       "models": "默认 Qwen3-Coder 自动路由，可切换 DeepSeek-V4 系列、GLM-5.x、Kimi-K2.x、MiniMax、Qwen3.7-Max/Plus 等国内主流大模型",
@@ -3243,8 +3228,8 @@
       "sourceUrl": "https://help.aliyun.com/zh/lingma/product-overview/billing-description",
       "notes": "① 通义灵码 2026-05-20 更名 Qoder CN，启用 Credits 计费；个人专业版限免同日日结束。② 企业档明码标价但须阿里云主账号采购（控制台下单），故未收入 tiers：团队版 Teams 99 元/席位·月（3,000 Credits/席位·月，1 席位起）；企业标准版 149 元/席位·月（10 席位起）；企业专属版 VPC 199 元/席位·月（50 席位起，独立实例+VPC 部署）。③ 企业版 2026-05 涨价：标准版 79→99、专属版 159→199 元/席位·月；存量订阅合同期内按原价。④ Credits 耗尽可购资源包：个人 40 元/1,000 Credits（1 个月有效）、企业 80 元/2,000 Credits（3 个月有效）。⑤ 官方定价页 lingma.aliyun.com/pricing（跳转 qoder.com.cn/pricing）为 JS 渲染无法直接抓取，数字以阿里云帮助中心计费说明页为准。⑥ 退款：订阅 24 小时内且未消耗 Credits 可退，资源包不退；不支持 5 天无理由退款。",
       "observedAt": "2026-07-26",
-      "entryUSD": 8.71023,
-      "maxUSD": 24.9496
+      "entryUSD": 8.72041,
+      "maxUSD": 24.9788
     },
     {
       "vendor": "字节",
@@ -3308,7 +3293,7 @@
           "currency": "CNY",
           "annualNote": "首月优惠 ¥59",
           "quota": "100 次速通/月（排队时跳队，按 Query 计次，31 天周期清零），标准模型体验，10 个云端任务并行",
-          "monthlyUSD": 14.6155
+          "monthlyUSD": 14.6326
         },
         {
           "name": "速通 Pro+",
@@ -3316,7 +3301,7 @@
           "currency": "CNY",
           "annualNote": "",
           "quota": "300 次速通/月，标准模型体验，10 个云端任务并行",
-          "monthlyUSD": 35.2838
+          "monthlyUSD": 35.3251
         },
         {
           "name": "速通 Ultra",
@@ -3324,7 +3309,7 @@
           "currency": "CNY",
           "annualNote": "",
           "quota": "1000 次速通/月，优先体验 SOTA 模型，20 个云端任务并行",
-          "monthlyUSD": 103.194
+          "monthlyUSD": 103.315
         },
         {
           "name": "优速通 Express",
@@ -3332,7 +3317,7 @@
           "currency": "CNY",
           "annualNote": "",
           "quota": "速通次数不限（限量发售），优先体验 SOTA 模型，20 个云端任务并行",
-          "monthlyUSD": 295.114
+          "monthlyUSD": 295.459
         }
       ],
       "models": "豆包、DeepSeek、Kimi 等国产模型（Ultra/Express 档优先体验 SOTA 模型）",
@@ -3341,8 +3326,8 @@
       "sourceUrl": "https://docs.trae.cn/ide_fast-pass-overview",
       "notes": "国内版基础功能免费，「速通」是免排队增值权益而非用量订阅：付费档只提供速通次数与并行/SOTA 权益，按 31 天周期发放、未用完清零，购买后不支持退款；支持微信/支付宝/抖音支付",
       "observedAt": "2026-07-26",
-      "entryUSD": 14.6155,
-      "maxUSD": 295.114
+      "entryUSD": 14.6326,
+      "maxUSD": 295.459
     },
     {
       "vendor": "百度",
@@ -3357,7 +3342,7 @@
           "currency": "CNY",
           "annualNote": "季付 ¥270、年付 ¥1000；官网活动：连续包月 ¥60/月、包年 5 折 ¥500/年、首购 1 元",
           "quota": "智能补全免费 + 含智能体请求券 ¥55/月（按 token 消耗 × 模型单价扣减），额度用尽后自动转免费 Auto-Free 模式（150k tokens/h）",
-          "monthlyUSD": 14.7631
+          "monthlyUSD": 14.7804
         },
         {
           "name": "个人旗舰版",
@@ -3365,7 +3350,7 @@
           "currency": "CNY",
           "annualNote": "季付 ¥889、年付 ¥3499",
           "quota": "含智能体请求券 ¥199/月，Auto-Free 模式 500k tokens/h",
-          "monthlyUSD": 44.1417
+          "monthlyUSD": 44.1933
         },
         {
           "name": "企业专业版",
@@ -3373,7 +3358,7 @@
           "currency": "CNY",
           "annualNote": "¥1500/人/年（季付 ¥450/人）",
           "quota": "每人 ¥72/月智能体请求券，Auto-Free 模式不限频，1 人起购；另有企业旗舰版 ¥358/人/月、企业专属版（私有化）¥2500/人/年、100 人起购",
-          "monthlyUSD": 22.1446
+          "monthlyUSD": 22.1705
         }
       ],
       "models": "文心大模型为主，智能体（Zulu）按 token 从请求券扣费，额度用尽后可切免费 Auto-Free 模式",
@@ -3382,8 +3367,8 @@
       "sourceUrl": "https://cloud.baidu.com/doc/COMATE/s/rlnvnio4a",
       "notes": "价格为百度智能云官方文档（2026-07-15 更新）刊例价，comate.baidu.com 官网常年有折扣活动（如连续包月 ¥60、包年 5 折），实际支付以官网为准；请求券按订阅周期刷新、不可预支，可另购独立智能体请求包（¥18/33/150，永久有效）",
       "observedAt": "2026-07-26",
-      "entryUSD": 14.7631,
-      "maxUSD": 44.1417
+      "entryUSD": 14.7804,
+      "maxUSD": 44.1933
     },
     {
       "vendor": "腾讯",
@@ -3398,7 +3383,7 @@
           "currency": "CNY",
           "annualNote": "连续包月 7 折 ¥70/月；年付 7 折 ¥840/年；连续包年再 8 折 ¥672/年",
           "quota": "每月 2000 基础积分 + 赠 2000 积分，代码补全无限次，15 个自动任务（限免 99 个）",
-          "monthlyUSD": 14.6155
+          "monthlyUSD": 14.6326
         },
         {
           "name": "高级版",
@@ -3406,7 +3391,7 @@
           "currency": "CNY",
           "annualNote": "",
           "quota": "每月 4000 基础积分 + 赠 5000 积分，代码补全无限次，30 个自动任务（限免 99 个）",
-          "monthlyUSD": 29.3786
+          "monthlyUSD": 29.4129
         },
         {
           "name": "旗舰版",
@@ -3414,7 +3399,7 @@
           "currency": "CNY",
           "annualNote": "",
           "quota": "每月 20000 基础积分 + 赠 30000 积分，99 个自动任务，功能抢先体验优先",
-          "monthlyUSD": 147.483
+          "monthlyUSD": 147.656
         }
       ],
       "models": "多模型 Auto 调度（体验版限免全模型），付费档全部模型可选",
@@ -3423,8 +3408,8 @@
       "sourceUrl": "https://www.codebuddy.cn/pricing/",
       "notes": "国内版另有企业版（WorkBuddy）¥198/人/月起（含 2000 积分/人/月，团队共享）。国际版 codebuddy.ai 单独以美元计价：Pro $9.95/月（原价 $19.90，年付 $119.40，1000 积分/月）、团队版 $40/坐席/月，新用户赠 250 积分（14 天有效）",
       "observedAt": "2026-07-26",
-      "entryUSD": 14.6155,
-      "maxUSD": 147.483
+      "entryUSD": 14.6326,
+      "maxUSD": 147.656
     },
     {
       "vendor": "JetBrains",
@@ -3825,7 +3810,7 @@
           "currency": "CNY",
           "annualNote": "季付 ¥109、年付 ¥359（官方标注限时折扣价，原价 ¥129/月）",
           "quota": "官方未公布用量额度，仅列功能权益（代码补全、多轮对话、知识库对话、代码收藏等）",
-          "monthlyUSD": 7.23392
+          "monthlyUSD": 7.24238
         },
         {
           "name": "企业标准版",
@@ -3850,8 +3835,8 @@
       "sourceUrl": "https://xiaohuanxiong.com/code",
       "notes": "价格为官网当前折扣价；企业标准版仅年付（monthly 为 null 是「仅年付」而非定制）；办公小浣熊非编程产品未收录",
       "observedAt": "2026-07-26",
-      "entryUSD": 7.23392,
-      "maxUSD": 7.23392
+      "entryUSD": 7.24238,
+      "maxUSD": 7.24238
     },
     {
       "vendor": "讯飞",
@@ -3866,7 +3851,7 @@
           "currency": "CNY",
           "annualNote": "季付 ¥538（日常 9 折）",
           "quota": "每 5 小时约 6,000 次、每周约 45,000 次、每订阅月约 90,000 次；波谷时段（夜间/周末/节假日）计费系数 0.8；不同模型按抵扣系数（1-5）消耗",
-          "monthlyUSD": 29.3786
+          "monthlyUSD": 29.4129
         },
         {
           "name": "速通版",
@@ -3874,7 +3859,7 @@
           "currency": "CNY",
           "annualNote": "限时首月 ¥699；季付 ¥2,997（首季 ¥2,697）",
           "quota": "每订阅月最多约 30,000 次请求，面向高峰期快速响应场景",
-          "monthlyUSD": 147.483
+          "monthlyUSD": 147.656
         }
       ],
       "models": "星火 Spark X2 Agent / X2 / X2-Flash、Auto 路由，及 GLM-5.x、DeepSeek-V4、Kimi-K2.x、MiniMax-M2.5、Qwen3.5/3.6 等开源模型",
@@ -3883,8 +3868,8 @@
       "sourceUrl": "https://www.xfyun.cn/doc/spark/CodingPlan.html",
       "notes": "iFlyCode 插件无公开订阅价（仅企业定制），此为讯飞 2026-03 上线的自营编程订阅；低价档（¥19/¥39）2026-07 已下线；正式订阅页需登录，价格取自官方文档 v2.3（2026-07-22）；仅限交互式编程，禁止自动化批量任务；不支持退订退款",
       "observedAt": "2026-07-26",
-      "entryUSD": 29.3786,
-      "maxUSD": 147.483
+      "entryUSD": 29.4129,
+      "maxUSD": 147.656
     },
     {
       "vendor": "京东",
@@ -3899,7 +3884,7 @@
           "currency": "CNY",
           "annualNote": "",
           "quota": "按席位资源限额：80,000 积分/用户/月",
-          "monthlyUSD": 11.6628
+          "monthlyUSD": 11.6765
         },
         {
           "name": "企业定制版",
@@ -3916,8 +3901,8 @@
       "sourceUrl": "https://joycode.jd.com/pricing/",
       "notes": "原 JoyCoder 更名 JoyCode，定位京东云企业级 AI 编码平台；积分与调用量换算关系未公布",
       "observedAt": "2026-07-26",
-      "entryUSD": 11.6628,
-      "maxUSD": 11.6628
+      "entryUSD": 11.6765,
+      "maxUSD": 11.6765
     },
     {
       "vendor": "华为",
@@ -3932,7 +3917,7 @@
           "currency": "CNY",
           "annualNote": "",
           "quota": "2,000 万 Tokens/席位/月，至高 100 席位",
-          "monthlyUSD": 5.75761
+          "monthlyUSD": 5.76434
         },
         {
           "name": "专业版",
@@ -3940,7 +3925,7 @@
           "currency": "CNY",
           "annualNote": "",
           "quota": "6,000 万 Tokens/席位/月，至高 1000 席位；含操作日志、模型管理、企业自定义模型、SSO 等",
-          "monthlyUSD": 20.5207
+          "monthlyUSD": 20.5447
         }
       ],
       "models": "内置 GLM-5、GLM-5.1、DeepSeek-V3.2 及 GLM-4.7-ArkTS-SPARK（鸿蒙代码增训）等，企业版支持三方模型",
@@ -3949,8 +3934,8 @@
       "sourceUrl": "https://codearts.huaweicloud.com/pricing.html",
       "notes": "原 CodeArts Snap / 盘古研发助手更名升级（CodeArts Doer），按席位包月 + Token 额度计费；未公布年付折扣",
       "observedAt": "2026-07-26",
-      "entryUSD": 5.75761,
-      "maxUSD": 20.5207
+      "entryUSD": 5.76434,
+      "maxUSD": 20.5447
     }
   ],
   "plansCount": 29
