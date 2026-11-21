@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-20T08:29:57.987Z",
+  "updatedAt": "2026-11-21T08:15:38.360Z",
   "fx": {
     "USD_CNY": 6.69198,
     "source": "open.er-api.com"
@@ -1423,14 +1423,14 @@
       "model": "gemma-3-27b-it",
       "modelId": "gemma-3-27b-it",
       "input": 0.08,
-      "output": 0.16,
+      "output": 0.45,
       "currency": "USD",
       "context": 131072,
       "source": "openrouter",
       "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
       "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
       "inputUSD": 0.08,
-      "outputUSD": 0.16
+      "outputUSD": 0.45
     },
     {
       "vendor": "Google",
@@ -1452,15 +1452,15 @@
       "region": "intl",
       "model": "gemma-4-26b-a4b-it",
       "modelId": "gemma-4-26b-a4b-it",
-      "input": 0.09,
-      "output": 0.3,
+      "input": 0.0675,
+      "output": 0.225,
       "currency": "USD",
       "context": 262144,
       "source": "openrouter",
       "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
       "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 0.09,
-      "outputUSD": 0.3
+      "inputUSD": 0.0675,
+      "outputUSD": 0.225
     },
     {
       "vendor": "Google",
@@ -2840,15 +2840,15 @@
       "region": "intl",
       "model": "gpt-oss-20b",
       "modelId": "gpt-oss-20b",
-      "input": 0.018,
-      "output": 0.09,
+      "input": 0.017,
+      "output": 0.085,
       "currency": "USD",
       "context": 131072,
       "source": "openrouter",
       "sourceUrl": "https://openai.com/api/pricing/",
       "notes": "价格来自 OpenRouter, 可能与官方直连价略有差异",
-      "inputUSD": 0.018,
-      "outputUSD": 0.09
+      "inputUSD": 0.017,
+      "outputUSD": 0.085
     },
     {
       "vendor": "OpenAI",
